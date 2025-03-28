@@ -11,7 +11,7 @@ import java.util.Optional;
 
 @CrossOrigin("*")
 @RestController
-@RequestMapping("/functional-symptoms")
+@RequestMapping("/functionalsymptoms")
 public class FunctionalSymptomsRestController {
 
     @Autowired
@@ -31,6 +31,12 @@ public class FunctionalSymptomsRestController {
         FunctionalSymptoms updatedFunctionalSymptoms = functionalSymptomsService.updateFunctionalSymptoms(id, patientId, functionalSymptoms);
         return ResponseEntity.ok(updatedFunctionalSymptoms);
     }
+    @GetMapping("/patient/{patientId}")
+    public ResponseEntity<List<FunctionalSymptoms>> getFunctionalSymptomsByPatientId(@PathVariable Long patientId) {
+        List<FunctionalSymptoms> functionalSymptoms = functionalSymptomsService.findFunctionalSymptomsByPatientId(patientId);
+        return ResponseEntity.ok(functionalSymptoms);
+    }
+
 
     // Afficher tous les FunctionalSymptoms
     @GetMapping
@@ -40,9 +46,11 @@ public class FunctionalSymptomsRestController {
 
     // Afficher un FunctionalSymptoms par ID
     @GetMapping("/{id}")
-    public ResponseEntity<Optional<FunctionalSymptoms>> displayFunctionalSymptomsById(@PathVariable("id") Long id) {
-        Optional<FunctionalSymptoms> functionalSymptoms = functionalSymptomsService.displayFunctionalSymptomsById(id);
-        return ResponseEntity.ok(functionalSymptoms);
+    public ResponseEntity<FunctionalSymptoms> displayFunctionalSymptomsById(@PathVariable("id") Long id) {
+        return functionalSymptomsService.displayFunctionalSymptomsById(id)
+                .map(ResponseEntity::ok)
+                .orElseGet(() -> ResponseEntity.notFound().build());
     }
+
 }
 

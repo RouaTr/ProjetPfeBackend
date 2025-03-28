@@ -1,5 +1,7 @@
 package com.projet.projetPFE.RestController;
 
+
+import com.projet.projetPFE.Entities.MedicalHistory;
 import com.projet.projetPFE.Entities.Observation;
 import com.projet.projetPFE.Service.ObservationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -36,11 +38,19 @@ public class ObservationRestController {
     public List<Observation> displayObservations() {
         return observationService.displayObservation();
     }
-
-    // Afficher une observation par ID
-    @GetMapping("/{id}")
-    public ResponseEntity<Optional<Observation>> displayObservationById(@PathVariable("id") Long id) {
-        Optional<Observation> observation = observationService.displayObservation(id);
-        return ResponseEntity.ok(observation);
+    @GetMapping("/patient/{patientId}")
+    public ResponseEntity<List<Observation>> getObservationsByPatientId(@PathVariable Long patientId) {
+        List<Observation> observations = observationService.findObservationsByPatientId(patientId);
+        return ResponseEntity.ok(observations);
     }
+    @GetMapping("/{id}")
+    public ResponseEntity<Observation> displayObservationById(@PathVariable("id") Long id) {
+        return observationService.displayObservationById(id)
+                .map(ResponseEntity::ok)
+                .orElseGet(() -> ResponseEntity.notFound().build()); // Retourne une erreur 404 si l'observation n'existe pas
+    }
+
+
+
+
 }

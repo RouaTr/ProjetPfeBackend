@@ -11,7 +11,7 @@ import java.util.Optional;
 
 @CrossOrigin(origins = "http://localhost:4200")
 @RestController
-@RequestMapping("/clinical-symptoms")
+@RequestMapping("/clinicalsymptoms")
 public class ClinicalSymptomsRestController {
 
     @Autowired
@@ -39,10 +39,15 @@ public class ClinicalSymptomsRestController {
         return clinicalSymptomsService.displayClinicalSymptoms();
     }
 
-    // Afficher un ClinicalSymptoms par ID
     @GetMapping("/{id}")
-    public ResponseEntity<Optional<ClinicalSymptoms>> displayClinicalSymptomsById(@PathVariable("id") Long id) {
-        Optional<ClinicalSymptoms> clinicalSymptoms = clinicalSymptomsService.displayClinicalSymptomsById(id);
+    public ResponseEntity<ClinicalSymptoms> displayClinicalSymptomsById(@PathVariable("id") Long id) {
+        return clinicalSymptomsService.displayClinicalSymptomsById(id)
+                .map(ResponseEntity::ok)
+                .orElseGet(() -> ResponseEntity.notFound().build());
+    }
+    @GetMapping("/patient/{patientId}")
+    public ResponseEntity<List<ClinicalSymptoms>> getClinicalSymptomsByPatientId(@PathVariable Long patientId) {
+        List<ClinicalSymptoms> clinicalSymptoms = clinicalSymptomsService.findClinicalSymptomsByPatientId(patientId);
         return ResponseEntity.ok(clinicalSymptoms);
     }
 }

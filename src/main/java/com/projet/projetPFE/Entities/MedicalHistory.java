@@ -11,6 +11,7 @@ public class MedicalHistory {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+
     @Column(nullable = false)
     private String historyType; // Type: Vaccin, Allergie, Médicaux, Familiaux, IST
 
@@ -116,7 +117,9 @@ public class MedicalHistory {
         this.stiTreatmentEndDate = stiTreatmentEndDate;
         this.stiFollowUp = stiFollowUp;
         this.stiStatus = stiStatus;
+
     }
+
 
     public Long getId() {
         return id;

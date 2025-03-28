@@ -11,4 +11,5 @@ public interface ClinicalSymptomsService {
     ClinicalSymptoms updateClinicalSymptoms(Long id,Long patientId,ClinicalSymptoms clinicalSymptoms);
     List<ClinicalSymptoms> displayClinicalSymptoms();
     Optional<ClinicalSymptoms> displayClinicalSymptomsById(Long id);
+    List<ClinicalSymptoms> findClinicalSymptomsByPatientId(Long patientId);
 }

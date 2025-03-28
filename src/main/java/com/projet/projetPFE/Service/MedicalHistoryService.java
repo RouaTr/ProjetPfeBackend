@@ -1,6 +1,7 @@
 package com.projet.projetPFE.Service;
 
 import com.projet.projetPFE.Entities.MedicalHistory;
+
 import com.projet.projetPFE.Entities.Patient;
 
 import java.util.List;
@@ -11,4 +12,5 @@ public interface MedicalHistoryService {
     MedicalHistory updateMedicalHistory(Long id,Long patientId, MedicalHistory medicalHistory);
     List<MedicalHistory> displayMedicalHistory();
     Optional<MedicalHistory> displayMedicalHistoryById(Long id);
+    List<MedicalHistory> findMedicalHistoryByPatientId(Long patientId);
 }

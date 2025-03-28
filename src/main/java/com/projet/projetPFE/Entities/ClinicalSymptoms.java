@@ -2,6 +2,8 @@ package com.projet.projetPFE.Entities;
 
 import jakarta.persistence.*;
 
+import java.util.Date;
+
 @Entity
 @Table(name = "clinical_symptoms")
 public class ClinicalSymptoms {
@@ -44,6 +46,8 @@ public class ClinicalSymptoms {
 
     @Column(columnDefinition = "TEXT")
     private String puberty;
+    @Temporal(TemporalType.DATE)
+    private Date clinicalSymptomsDate;
 
     @ManyToOne
     @JoinColumn(name = "patient_id", nullable = false)
@@ -90,6 +94,14 @@ public class ClinicalSymptoms {
 
     public String getDermatological() {
         return dermatological;
+    }
+
+    public Date getClinicalSymptomsDate() {
+        return clinicalSymptomsDate;
+    }
+
+    public void setClinicalSymptomsDate(Date clinicalSymptomsDate) {
+        this.clinicalSymptomsDate = clinicalSymptomsDate;
     }
 
     public void setDermatological(String dermatological) {

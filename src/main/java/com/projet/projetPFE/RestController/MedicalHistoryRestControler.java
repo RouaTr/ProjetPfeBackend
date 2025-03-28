@@ -8,7 +8,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Optional;
+
 @CrossOrigin("*")
 @RestController
 @RequestMapping("/medicalHistories")
@@ -40,10 +40,16 @@ public class MedicalHistoryRestControler {
         return medicalHistoryService.displayMedicalHistory();
     }
 
-    // Afficher un antécédent médical par ID
-    @RequestMapping(value = "/{id}", method = RequestMethod.GET)
-    public Optional<MedicalHistory> displayMedicalHistoryById(@PathVariable("id") Long id) {
-        return medicalHistoryService.displayMedicalHistoryById(id);
+    @GetMapping("/{id}")
+    public ResponseEntity<MedicalHistory> displayMedicalHistoryById(@PathVariable("id") Long id) {
+        return medicalHistoryService.displayMedicalHistoryById(id)
+                .map(ResponseEntity::ok)
+                .orElseGet(() -> ResponseEntity.notFound().build()); // Retourne une erreur 404 si l'observation n'existe pas
+    }
+    @GetMapping("/patient/{patientId}")
+    public ResponseEntity<List<MedicalHistory>> getMedicalHistoryByPatientId(@PathVariable Long patientId) {
+        List<MedicalHistory> medicalHistory = medicalHistoryService.findMedicalHistoryByPatientId(patientId);
+        return ResponseEntity.ok(medicalHistory);
     }
 }
 

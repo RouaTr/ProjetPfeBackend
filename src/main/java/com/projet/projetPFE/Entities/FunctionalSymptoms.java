@@ -1,7 +1,8 @@
 package com.projet.projetPFE.Entities;
 
-import jakarta.persistence.Entity;
 import jakarta.persistence.*;
+
+import java.util.Date;
 
 @Entity
 @Table(name = "functional_symptoms")
@@ -10,86 +11,53 @@ public class FunctionalSymptoms {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(columnDefinition = "TEXT")
-    private String fever;
+    private Boolean fever;
+    private Boolean diarrhea;
+    private Boolean cough;
+    private Boolean abdominalPain;
+    private Boolean dyspnea;
+    private Boolean nausea;
+    private Boolean asthenia;
+    private Boolean arthralgia;
+    private Boolean nightSweats;
+    private Boolean headache;
+    private Boolean dysphagia;
+    private Boolean pruritus;
+    private Boolean anorexia;
+    private Boolean insomnia;
+    private Boolean moodDisorders;
+    private Boolean rhinorrhea;
+    private Boolean paresthesia;
+    private Boolean cramps;
+    private Boolean visualDisturbances;
+    private Boolean myalgia;
+    private Boolean libidoDisorders;
+    private Boolean otherSymptoms;
+    @Temporal(TemporalType.DATE)
+    private Date functionalSymptomsDate;
 
-    @Column(columnDefinition = "TEXT")
-    private String diarrhea;
+    public Date getFunctionalSymptomsDate() {
+        return functionalSymptomsDate;
+    }
 
-    @Column(columnDefinition = "TEXT")
-    private String cough;
-
-    @Column(columnDefinition = "TEXT")
-    private String abdominalPain;
-
-    @Column(columnDefinition = "TEXT")
-    private String dyspnea;
-
-    @Column(columnDefinition = "TEXT")
-    private String nausea;
-
-    @Column(columnDefinition = "TEXT")
-    private String asthenia;
-
-    @Column(columnDefinition = "TEXT")
-    private String arthralgia;
-
-    @Column(columnDefinition = "TEXT")
-    private String nightSweats;
-
-    @Column(columnDefinition = "TEXT")
-    private String headache;
-
-    @Column(columnDefinition = "TEXT")
-    private String dysphagia;
-
-    @Column(columnDefinition = "TEXT")
-    private String pruritus;
-
-    @Column(columnDefinition = "TEXT")
-    private String anorexia;
-
-    @Column(columnDefinition = "TEXT")
-    private String insomnia;
-
-    @Column(columnDefinition = "TEXT")
-    private String moodDisorders;
-
-    @Column(columnDefinition = "TEXT")
-    private String rhinorrhea;
-
-    @Column(columnDefinition = "TEXT")
-    private String paresthesia;
-
-    @Column(columnDefinition = "TEXT")
-    private String cramps;
-
-    @Column(columnDefinition = "TEXT")
-    private String visualDisturbances;
-
-    @Column(columnDefinition = "TEXT")
-    private String myalgia;
-
-    @Column(columnDefinition = "TEXT")
-    private String libidoDisorders;
-
-    @Column(columnDefinition = "TEXT")
-    private String otherSymptoms;  // Stores custom symptoms added by the user
+    public void setFunctionalSymptomsDate(Date functionalSymptomsDate) {
+        this.functionalSymptomsDate = functionalSymptomsDate;
+    }
 
     @ManyToOne
     @JoinColumn(name = "patient_id", nullable = false)
     private Patient patient;
 
-    // Constructors
+    // Constructeurs
     public FunctionalSymptoms() {}
 
-    public FunctionalSymptoms(Patient patient, String fever, String diarrhea, String cough,
-                              String abdominalPain, String dyspnea, String nausea, String asthenia,
-                              String arthralgia, String nightSweats, String headache, String dysphagia,
-                              String pruritus, String anorexia, String insomnia, String moodDisorders,
-                              String rhinorrhea, String paresthesia, String cramps,
-                              String visualDisturbances, String myalgia, String libidoDisorders,
-                              String otherSymptoms) {
+    public FunctionalSymptoms(Patient patient, Boolean fever, Boolean diarrhea, Boolean cough,
+                              Boolean abdominalPain, Boolean dyspnea, Boolean nausea, Boolean asthenia,
+                              Boolean arthralgia, Boolean nightSweats, Boolean headache, Boolean dysphagia,
+                              Boolean pruritus, Boolean anorexia, Boolean insomnia, Boolean moodDisorders,
+                              Boolean rhinorrhea, Boolean paresthesia, Boolean cramps,
+                              Boolean visualDisturbances, Boolean myalgia, Boolean libidoDisorders,
+                              Boolean otherSymptoms) {
         this.patient = patient;
         this.fever = fever;
         this.diarrhea = diarrhea;
@@ -115,6 +83,7 @@ public class FunctionalSymptoms {
         this.otherSymptoms = otherSymptoms;
     }
 
+    // Getters et Setters
     public Long getId() {
         return id;
     }
@@ -123,179 +92,179 @@ public class FunctionalSymptoms {
         this.id = id;
     }
 
-    public String getFever() {
+    public Boolean getFever() {
         return fever;
     }
 
-    public void setFever(String fever) {
+    public void setFever(Boolean fever) {
         this.fever = fever;
     }
 
-    public String getDiarrhea() {
+    public Boolean getDiarrhea() {
         return diarrhea;
     }
 
-    public void setDiarrhea(String diarrhea) {
+    public void setDiarrhea(Boolean diarrhea) {
         this.diarrhea = diarrhea;
     }
 
-    public String getCough() {
+    public Boolean getCough() {
         return cough;
     }
 
-    public void setCough(String cough) {
+    public void setCough(Boolean cough) {
         this.cough = cough;
     }
 
-    public String getAbdominalPain() {
+    public Boolean getAbdominalPain() {
         return abdominalPain;
     }
 
-    public void setAbdominalPain(String abdominalPain) {
+    public void setAbdominalPain(Boolean abdominalPain) {
         this.abdominalPain = abdominalPain;
     }
 
-    public String getDyspnea() {
+    public Boolean getDyspnea() {
         return dyspnea;
     }
 
-    public void setDyspnea(String dyspnea) {
+    public void setDyspnea(Boolean dyspnea) {
         this.dyspnea = dyspnea;
     }
 
-    public String getNausea() {
+    public Boolean getNausea() {
         return nausea;
     }
 
-    public void setNausea(String nausea) {
+    public void setNausea(Boolean nausea) {
         this.nausea = nausea;
     }
 
-    public String getAsthenia() {
+    public Boolean getAsthenia() {
         return asthenia;
     }
 
-    public void setAsthenia(String asthenia) {
+    public void setAsthenia(Boolean asthenia) {
         this.asthenia = asthenia;
     }
 
-    public String getArthralgia() {
+    public Boolean getArthralgia() {
         return arthralgia;
     }
 
-    public void setArthralgia(String arthralgia) {
+    public void setArthralgia(Boolean arthralgia) {
         this.arthralgia = arthralgia;
     }
 
-    public String getNightSweats() {
+    public Boolean getNightSweats() {
         return nightSweats;
     }
 
-    public void setNightSweats(String nightSweats) {
+    public void setNightSweats(Boolean nightSweats) {
         this.nightSweats = nightSweats;
     }
 
-    public String getHeadache() {
+    public Boolean getHeadache() {
         return headache;
     }
 
-    public void setHeadache(String headache) {
+    public void setHeadache(Boolean headache) {
         this.headache = headache;
     }
 
-    public String getDysphagia() {
+    public Boolean getDysphagia() {
         return dysphagia;
     }
 
-    public void setDysphagia(String dysphagia) {
+    public void setDysphagia(Boolean dysphagia) {
         this.dysphagia = dysphagia;
     }
 
-    public String getPruritus() {
+    public Boolean getPruritus() {
         return pruritus;
     }
 
-    public void setPruritus(String pruritus) {
+    public void setPruritus(Boolean pruritus) {
         this.pruritus = pruritus;
     }
 
-    public String getAnorexia() {
+    public Boolean getAnorexia() {
         return anorexia;
     }
 
-    public void setAnorexia(String anorexia) {
+    public void setAnorexia(Boolean anorexia) {
         this.anorexia = anorexia;
     }
 
-    public String getInsomnia() {
+    public Boolean getInsomnia() {
         return insomnia;
     }
 
-    public void setInsomnia(String insomnia) {
+    public void setInsomnia(Boolean insomnia) {
         this.insomnia = insomnia;
     }
 
-    public String getMoodDisorders() {
+    public Boolean getMoodDisorders() {
         return moodDisorders;
     }
 
-    public void setMoodDisorders(String moodDisorders) {
+    public void setMoodDisorders(Boolean moodDisorders) {
         this.moodDisorders = moodDisorders;
     }
 
-    public String getRhinorrhea() {
+    public Boolean getRhinorrhea() {
         return rhinorrhea;
     }
 
-    public void setRhinorrhea(String rhinorrhea) {
+    public void setRhinorrhea(Boolean rhinorrhea) {
         this.rhinorrhea = rhinorrhea;
     }
 
-    public String getParesthesia() {
+    public Boolean getParesthesia() {
         return paresthesia;
     }
 
-    public void setParesthesia(String paresthesia) {
+    public void setParesthesia(Boolean paresthesia) {
         this.paresthesia = paresthesia;
     }
 
-    public String getCramps() {
+    public Boolean getCramps() {
         return cramps;
     }
 
-    public void setCramps(String cramps) {
+    public void setCramps(Boolean cramps) {
         this.cramps = cramps;
     }
 
-    public String getVisualDisturbances() {
+    public Boolean getVisualDisturbances() {
         return visualDisturbances;
     }
 
-    public void setVisualDisturbances(String visualDisturbances) {
+    public void setVisualDisturbances(Boolean visualDisturbances) {
         this.visualDisturbances = visualDisturbances;
     }
 
-    public String getMyalgia() {
+    public Boolean getMyalgia() {
         return myalgia;
     }
 
-    public void setMyalgia(String myalgia) {
+    public void setMyalgia(Boolean myalgia) {
         this.myalgia = myalgia;
     }
 
-    public String getLibidoDisorders() {
+    public Boolean getLibidoDisorders() {
         return libidoDisorders;
     }
 
-    public void setLibidoDisorders(String libidoDisorders) {
+    public void setLibidoDisorders(Boolean libidoDisorders) {
         this.libidoDisorders = libidoDisorders;
     }
 
-    public String getOtherSymptoms() {
+    public Boolean getOtherSymptoms() {
         return otherSymptoms;
     }
 
-    public void setOtherSymptoms(String otherSymptoms) {
+    public void setOtherSymptoms(Boolean otherSymptoms) {
         this.otherSymptoms = otherSymptoms;
     }
 
