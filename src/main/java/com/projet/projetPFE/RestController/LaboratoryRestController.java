@@ -1,6 +1,7 @@
 package com.projet.projetPFE.RestController;
 
 import com.projet.projetPFE.Entities.Laboratory;
+
 import com.projet.projetPFE.Service.LaboratoryService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -11,7 +12,7 @@ import java.util.Optional;
 
 @CrossOrigin("*")
 @RestController
-@RequestMapping("/laboratories")
+@RequestMapping("/laboratory")
 public class LaboratoryRestController {
 
     @Autowired
@@ -23,26 +24,30 @@ public class LaboratoryRestController {
         return laboratoryService.addLaboratory(patientId, laboratory);
     }
 
-    // Mettre à jour un laboratoire
+    // Modifier laboratoire
     @PutMapping("/{id}")
-    public ResponseEntity<Laboratory> updateLaboratory(
-            @PathVariable Long id,
-            @RequestParam Long patientId,
-            @RequestBody Laboratory laboratory) {
-
+    public ResponseEntity<Laboratory> updateLaboratory(@PathVariable("id") Long id,
+                                                         @RequestParam Long patientId,
+                                                         @RequestBody Laboratory laboratory) {
         Laboratory updatedLaboratory = laboratoryService.updateLaboratory(id, patientId, laboratory);
         return ResponseEntity.ok(updatedLaboratory);
     }
 
-    // Afficher tous les laboratoires
+
     @GetMapping
-    public List<Laboratory> displayLaboratories() {
+    public List<Laboratory> displayLaboratory() {
         return laboratoryService.displayLaboratory();
     }
-
-    // Afficher un laboratoire par ID
-    @GetMapping("/{id}")
-    public Optional<Laboratory> displayLaboratoryById(@PathVariable("id") Long id) {
-        return laboratoryService.displayLaboratoryById(id);
+    @GetMapping("/patient/{patientId}")
+    public ResponseEntity<List<Laboratory>> getLaboratoryByPatientId(@PathVariable Long patientId) {
+        List<Laboratory> laboratory = laboratoryService.findLaboratoryByPatientId(patientId);
+        return ResponseEntity.ok(laboratory);
     }
+    @GetMapping("/{id}")
+    public ResponseEntity<Laboratory> displayLaboratoryById(@PathVariable("id") Long id) {
+        return laboratoryService.displayLaboratoryById(id)
+                .map(ResponseEntity::ok)
+                .orElseGet(() -> ResponseEntity.notFound().build()); // Retourne une erreur 404 si le bilan n'existe pas
+    }
+
 }
