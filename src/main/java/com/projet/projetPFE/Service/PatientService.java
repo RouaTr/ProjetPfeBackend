@@ -10,4 +10,7 @@ public interface PatientService {
     Patient updatePatient(Long id, Patient patient);
     List<Patient> displayPatient();
     Optional<Patient> displayPatientById(Long id);
+    boolean doesPatientExist(String lastName, String firstName);
+
+
 }

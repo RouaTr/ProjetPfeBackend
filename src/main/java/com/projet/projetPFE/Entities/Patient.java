@@ -1,6 +1,7 @@
 package com.projet.projetPFE.Entities;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonProperty;
 import jakarta.persistence.*;
 
 
@@ -13,6 +14,7 @@ public class Patient {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    /*@JsonProperty*/
     private Long id;
     private String lastName;
     private String firstName;
@@ -22,6 +24,7 @@ public class Patient {
 
     private String gender;
     private String phoneNumber;
+
     private String city;
     private String region;
     private String postalCode;
@@ -52,6 +55,15 @@ public class Patient {
     private String initialScreeningType;
     private String initialScreeningReason;
 
+
+    public Double getAge_at_HIV_diagnosis() {
+        return age_at_HIV_diagnosis;
+    }
+
+    public void setAge_at_HIV_diagnosis(Double age_at_HIV_diagnosis) {
+        this.age_at_HIV_diagnosis = age_at_HIV_diagnosis;
+    }
+
     @Temporal(TemporalType.DATE)
     private Date lastNegativeDate;
 
@@ -61,6 +73,7 @@ public class Patient {
     private String hlaB5701Typing;
     private String screeningCircumstance;
     private String viralType;
+    private Double age_at_HIV_diagnosis;
 
     @Temporal(TemporalType.DATE)
     private Date contaminationDate;
@@ -85,6 +98,20 @@ public class Patient {
     @OneToMany(mappedBy = "patient", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JsonIgnore
     private List<ClinicalSymptoms> clinicalSymptoms;
+    @OneToMany(mappedBy = "patient", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    @JsonIgnore
+    private List<MedicalTreatment> medicalTreatments;
+    @OneToMany(mappedBy = "patient", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+      @JsonIgnore
+    public List<MedicalTreatment> getMedicalTreatments() {
+        return medicalTreatments;
+    }
+
+    public void setMedicalTreatments(List<MedicalTreatment> medicalTreatments) {
+        this.medicalTreatments = medicalTreatments;
+    }
+
+
 
     public Long getId() {
         return id;

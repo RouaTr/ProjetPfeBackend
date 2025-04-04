@@ -30,4 +30,10 @@ public class PatientServiceImpl implements PatientService{
     public Optional<Patient> displayPatientById(Long id) {
         return patientRepository.findById(id);
     }
+    @Override
+    public boolean doesPatientExist(String lastName, String firstName) {
+        return patientRepository.existsByLastNameAndFirstName(lastName, firstName);
+    }
+
+
 }
