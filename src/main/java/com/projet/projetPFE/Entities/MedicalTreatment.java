@@ -20,6 +20,15 @@ public class MedicalTreatment {
     private  String  status;
     @Temporal(TemporalType.DATE)
     private Date treatmentRegistrationDate;
+    private Boolean delivered;
+
+    public Boolean getDelivered() {
+        return delivered;
+    }
+
+    public void setDelivered(Boolean delivered) {
+        this.delivered = delivered;
+    }
 
     public Date getTreatmentRegistrationDate() {
         return treatmentRegistrationDate;
