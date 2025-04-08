@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports"
+              xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+              xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports
+                                  http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"
+              name="Ordonnance"
+              pageWidth="595"
+              pageHeight="842"
+              columnWidth="535"
+              columnCount="1"
+              leftMargin="30"
+              rightMargin="30"
+              topMargin="30"
+              bottomMargin="30">
+
+    <!-- Paramètre pour passer l'id du patient -->
+    <parameter name="patientId" class="java.lang.Long"/>
+
+    <!-- Définition de la source de données -->
+    <queryString>
+        <![CDATA[
+        SELECT m.treatment_name, m.treatment_start_date, m.treatment_intake_duration, p.first_name, p.last_name
+        FROM medical_treatment m
+        JOIN patients p ON p.id = m.patient_id
+        WHERE p.id = $P{patientId}
+        ORDER BY m.treatment_start_date DESC
+        LIMIT 1
+        ]]>
+    </queryString>
+
+    <!-- Champs pour afficher les données -->
+    <field name="treatment_name" class="java.lang.String"/>
+    <field name="treatment_start_date" class="java.util.Date"/>
+    <field name="treatment_intake_duration" class="java.lang.Double"/>
+    <field name="first_name" class="java.lang.String"/>
+    <field name="last_name" class="java.lang.String"/>
+
+    <!-- Titre du rapport -->
+    <title>
+        <band height="50">
+            <textField>
+                <reportElement x="0" y="10" width="535" height="30"/>
+                <textElement textAlignment="Center"/>
+                <textFieldExpression><![CDATA["Ordonnance pour " + $F{first_name} + " " + $F{last_name}]]></textFieldExpression>
+            </textField>
+        </band>
+    </title>
+
+    <!-- Détails du rapport -->
+    <detail>
+        <band height="120">
+            <!-- Afficher le nom et prénom du patient -->
+            <textField>
+                <reportElement x="0" y="10" width="535" height="20"/>
+                <textFieldExpression><![CDATA["Nom du patient : " + $F{first_name} + " " + $F{last_name}]]></textFieldExpression>
+            </textField>
+
+            <!-- Afficher les informations du traitement -->
+            <textField>
+                <reportElement x="0" y="40" width="535" height="20"/>
+                <textFieldExpression><![CDATA["Traitement : " + $F{treatment_name}]]></textFieldExpression>
+            </textField>
+
+            <textField>
+                <reportElement x="0" y="70" width="535" height="20"/>
+                <textFieldExpression><![CDATA["Date de début : " + new java.text.SimpleDateFormat("dd/MM/yyyy").format($F{treatment_start_date})]]></textFieldExpression>
+            </textField>
+
+            <textField>
+                <reportElement x="0" y="100" width="535" height="20"/>
+                <textFieldExpression><![CDATA["Durée du traitement (en jours) : " + $F{treatment_intake_duration}]]></textFieldExpression>
+            </textField>
+        </band>
+    </detail>
+
+    <!-- Footer du rapport (facultatif) -->
+    <pageFooter>
+        <band height="30">
+            <textField>
+                <reportElement x="0" y="10" width="535" height="20"/>
+                <textElement textAlignment="Center"/>
+                <textFieldExpression><![CDATA["Date générée : " + new java.text.SimpleDateFormat("dd/MM/yyyy").format(new java.util.Date())]]></textFieldExpression>
+            </textField>
+        </band>
+    </pageFooter>
+
+</jasperReport>
