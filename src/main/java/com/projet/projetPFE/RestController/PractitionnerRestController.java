@@ -28,7 +28,7 @@ public class PractitionnerRestController {
 
     @Autowired
     PractitionnerService practitionnerService;
-   /* @RequestMapping(method = RequestMethod.POST )
+    @RequestMapping(method = RequestMethod.POST )
     ResponseEntity<?> addPractitionner(@RequestBody Practitionner practitionner){
         HashMap<String, Object> response = new HashMap<>();
         if(practitionnerRepository.existsByPractitionnerEmail(practitionner.getPractitionnerEmail())){
@@ -39,7 +39,7 @@ public class PractitionnerRestController {
             Practitionner savedUser = practitionnerRepository.save(practitionner);
             return ResponseEntity.status(HttpStatus.CREATED).body(savedUser);}
 
-    }*/
+    }
     @RequestMapping(value = "/{id}" ,method = RequestMethod.PUT)
     public Practitionner updatePractitionner(@PathVariable("id")Long id, @RequestBody Practitionner practitionner){
         practitionner.setPassword(this.bCryptPasswordEncoder.encode(practitionner.getPassword()));
@@ -61,12 +61,12 @@ public class PractitionnerRestController {
     }
 
 
-  /*  @PostMapping("/login")
+    @PostMapping("/login")
     public ResponseEntity<Map<String, Object>> loginPractitionner(@RequestBody Practitionner practitionner) {
         System.out.println("in login-practitionner"+practitionner);
         HashMap<String, Object> response = new HashMap<>();
 
-        Practitionner userFromDB = practitionnerRepository.findPractitionnerByEmail(practitionner.getPractitonnerEmail());
+        Practitionner userFromDB = practitionnerRepository.findPractitionnerByPractitionnerEmail(practitionner.getPractitionnerEmail());
         System.out.println("userFromDB+practitionner"+userFromDB);
         if (userFromDB == null) {
             response.put("message", "Practitionner not found !");
@@ -89,8 +89,12 @@ public class PractitionnerRestController {
             }
 
         }
-    }*/
-
+    }
+  @GetMapping("/exists")
+  public ResponseEntity<Boolean> doesPatientExist(@RequestParam String practitionnerLastName, @RequestParam String practitionnerFirstName) {
+      boolean exists = practitionnerService.doesPractitionnerExist(practitionnerLastName, practitionnerFirstName);
+      return ResponseEntity.ok(exists);
+  }
     @RequestMapping(value = "/{id}" , method = RequestMethod.GET)
     public Optional<Practitionner> getPractitionnerById(@PathVariable("id") Long id){
 

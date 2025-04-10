@@ -36,4 +36,12 @@ public class PractitionnerServiceImpl implements PractitionnerService{
     public Optional<Practitionner> displayPractitionnerbyid(Long id) {
         return practitionnerRepository.findById(id);
     }
+
+    @Override
+    public boolean doesPractitionnerExist(String practitionnerLastName, String practitionnerFirstName) {
+        return practitionnerRepository.existsByPractitionnerLastNameAndPractitionnerFirstName(practitionnerLastName, practitionnerFirstName);
+    }
+
+
+
 }

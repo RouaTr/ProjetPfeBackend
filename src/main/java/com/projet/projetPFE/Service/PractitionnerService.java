@@ -11,4 +11,6 @@ public interface PractitionnerService {
     void deletePractitionner(Long id);
     List< Practitionner> displayPractitionner();
     Optional< Practitionner> displayPractitionnerbyid(Long id);
+    boolean doesPractitionnerExist(String practitionnerLastName, String practitionnerFirstName);
+
 }
