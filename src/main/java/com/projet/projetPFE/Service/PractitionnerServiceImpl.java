@@ -42,6 +42,18 @@ public class PractitionnerServiceImpl implements PractitionnerService{
         return practitionnerRepository.existsByPractitionnerLastNameAndPractitionnerFirstName(practitionnerLastName, practitionnerFirstName);
     }
 
+    @Override
+    public Practitionner updatePractitionnerRole(Long id, String newRole) {
+        Optional<Practitionner> optionalPractitionner = practitionnerRepository.findById(id);
+        if (optionalPractitionner.isPresent()) {
+            Practitionner p = optionalPractitionner.get();
+            p.setPractitionnerRole(newRole);
+            return practitionnerRepository.save(p);
+        } else {
+            throw new RuntimeException("Practitionner not found with id " + id);
+        }
+
+    }
 
 
 }

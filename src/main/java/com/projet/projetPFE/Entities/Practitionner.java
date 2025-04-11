@@ -19,6 +19,15 @@ public class Practitionner {
     private String password;
 
     private String practitionnerRole;
+    private String status = "pending";
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 
     public Long getId() {
         return id;

@@ -12,5 +12,7 @@ public interface PractitionnerService {
     List< Practitionner> displayPractitionner();
     Optional< Practitionner> displayPractitionnerbyid(Long id);
     boolean doesPractitionnerExist(String practitionnerLastName, String practitionnerFirstName);
+    Practitionner updatePractitionnerRole(Long id, String newRole);
+
 
 }
