@@ -1,5 +1,6 @@
 package com.projet.projetPFE.Service;
 
+import com.projet.projetPFE.Entities.Patient;
 import com.projet.projetPFE.Entities.Practitionner;
 
 import java.util.List;
@@ -13,6 +14,8 @@ public interface PractitionnerService {
     Optional< Practitionner> displayPractitionnerbyid(Long id);
     boolean doesPractitionnerExist(String practitionnerLastName, String practitionnerFirstName);
     Practitionner updatePractitionnerRole(Long id, String newRole);
+    Practitionner findPractitionnerByPractitionnerEmail(String practitionnerEmail);
+    List<Patient> getPatientsByPractitionner(Practitionner practitioner);
 
 
 }

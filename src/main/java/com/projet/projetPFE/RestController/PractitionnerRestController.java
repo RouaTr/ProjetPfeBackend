@@ -1,6 +1,9 @@
 package com.projet.projetPFE.RestController;
+import com.projet.projetPFE.Repository.PatientRepository;
+import org.springframework.ui.Model;
 
 import com.projet.projetPFE.Entities.ConfirmationToken;
+import com.projet.projetPFE.Entities.Patient;
 import com.projet.projetPFE.Entities.Practitionner;
 import com.projet.projetPFE.Repository.ConfirmationTokenRepository;
 import com.projet.projetPFE.Repository.PractitionnerRepository;
@@ -14,6 +17,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
+import java.security.Principal;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -26,7 +30,8 @@ public class PractitionnerRestController {
     private BCryptPasswordEncoder bCryptPasswordEncoder = new BCryptPasswordEncoder();
     @Autowired
     private ConfirmationTokenRepository confirmationTokenRepository;
-
+    @Autowired
+    private PatientRepository patientRepository;
     @Autowired
     private ConfirmationTokenService confirmationTokenService;
 
@@ -99,12 +104,12 @@ public class PractitionnerRestController {
             } else {
                 // Récupération du rôle de l'utilisateur
                 String practitionnerRole = userFromDB.getPractitionnerRole(); // "medecin", "pharmacien", "admin"
-                Long practitionerId = userFromDB.getId(); // ID de l'utilisateur
+                Long practitionnerId = userFromDB.getId(); // ID de l'utilisateur
 
                 // Création du token JWT
                 String token = Jwts.builder()
                         .claim("practitionnerRole", practitionnerRole)
-                        .claim("id", practitionerId)
+                        .claim("id", practitionnerId)
                         .claim("practitionnerFirstName", userFromDB.getPractitionnerFirstName())
                         .claim("practitionnerLastName", userFromDB.getPractitionnerLastName())
                         .claim("practitionnerEmail", userFromDB.getPractitionnerEmail())
@@ -114,7 +119,7 @@ public class PractitionnerRestController {
                 // Ajout du token, du rôle et de l'ID dans la réponse
                 response.put("token", token);
                 response.put("practitionnerRole", practitionnerRole);
-                response.put("id", practitionerId);
+                response.put("id", practitionnerId);
 
                 // Logique basée sur le rôle
                 if ("admin".equals(practitionnerRole)) {
@@ -200,18 +205,23 @@ public class PractitionnerRestController {
     }
     @PutMapping("/{id}/validate")
     public ResponseEntity<?> validatePractitionner(@PathVariable("id") Long id, @RequestParam String newRole) {
-        Optional<Practitionner> practitioner = practitionnerService.displayPractitionnerbyid(id);
-        if (practitioner.isEmpty()) {
+        Optional<Practitionner> practitionner = practitionnerService.displayPractitionnerbyid(id);
+        if (practitionner.isEmpty()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Praticien non trouvé");
         }
 
-        Practitionner p = practitioner.get();
+        Practitionner p = practitionner.get();
         p.setPractitionnerRole(newRole);  // Attribution du rôle
         p.setStatus("active");  // Activation du compte
 
         practitionnerService.updatePractitionner(p);  // Mise à jour du praticien
         return ResponseEntity.status(HttpStatus.OK).body("Praticien activé avec rôle : " + newRole);
     }
+
+
+
+
+
 
 
 

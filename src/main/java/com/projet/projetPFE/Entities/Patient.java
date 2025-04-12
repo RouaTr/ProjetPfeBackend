@@ -103,6 +103,18 @@ public class Patient {
     private List<MedicalTreatment> medicalTreatments;
     @OneToMany(mappedBy = "patient", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
       @JsonIgnore
+    @ManyToOne
+    @JoinColumn(name = "practitionner_id")
+    private Practitionner practitionner;
+
+    public void setPractitionner(Practitionner practitionner) {
+        this.practitionner = practitionner;
+    }
+
+    public Practitionner getPractitionner() {
+        return practitionner;
+    }
+
     public List<MedicalTreatment> getMedicalTreatments() {
         return medicalTreatments;
     }

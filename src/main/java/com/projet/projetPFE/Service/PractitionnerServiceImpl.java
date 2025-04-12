@@ -1,6 +1,8 @@
 package com.projet.projetPFE.Service;
 
+import com.projet.projetPFE.Entities.Patient;
 import com.projet.projetPFE.Entities.Practitionner;
+import com.projet.projetPFE.Repository.PatientRepository;
 import com.projet.projetPFE.Repository.PractitionnerRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -9,9 +11,14 @@ import java.util.List;
 import java.util.Optional;
 
 @Service
-public class PractitionnerServiceImpl implements PractitionnerService{
+public class PractitionnerServiceImpl implements PractitionnerService {
+
     @Autowired
     PractitionnerRepository practitionnerRepository;
+
+    @Autowired
+    PatientRepository patientRepository;
+
     @Override
     public Practitionner addPractitionner(Practitionner practitionner) {
         return practitionnerRepository.save(practitionner);
@@ -52,8 +59,16 @@ public class PractitionnerServiceImpl implements PractitionnerService{
         } else {
             throw new RuntimeException("Practitionner not found with id " + id);
         }
-
     }
 
+    @Override
+    public Practitionner findPractitionnerByPractitionnerEmail(String practitionnerEmail) {
+        // Implémentation pour récupérer un praticien par son email
+        return practitionnerRepository.findPractitionnerByPractitionnerEmail(practitionnerEmail);
+    }
 
+    @Override
+    public List<Patient> getPatientsByPractitionner(Practitionner practitioner) {
+        return patientRepository.findByPractitionner(practitioner); // Recherche des patients associés à un praticien
+    }
 }
