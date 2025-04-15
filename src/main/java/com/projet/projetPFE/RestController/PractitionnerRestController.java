@@ -61,12 +61,7 @@ public class PractitionnerRestController {
         Practitionner newPractitionner = practitionnerService.updatePractitionner(practitionner);
         return newPractitionner;
     }
-    @RequestMapping(value = "/{id}", method = RequestMethod.DELETE )
 
-    public void deletePractitionner(@PathVariable("id") Long id){
-        practitionnerService.deletePractitionner(id);
-
-    }
     @RequestMapping(method = RequestMethod.GET )
     public List<Practitionner> diplayPractitionner(){
         return practitionnerService.displayPractitionner();

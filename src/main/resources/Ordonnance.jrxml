@@ -68,7 +68,7 @@
 
             <textField>
                 <reportElement x="0" y="100" width="535" height="20"/>
-                <textFieldExpression><![CDATA["Durée du traitement (en jours) : " + $F{treatment_intake_duration}]]></textFieldExpression>
+                <textFieldExpression><![CDATA["Durée du traitement (en mois) : " + $F{treatment_intake_duration}]]></textFieldExpression>
             </textField>
         </band>
     </detail>

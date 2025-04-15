@@ -29,10 +29,7 @@ public class PractitionnerServiceImpl implements PractitionnerService {
         return practitionnerRepository.save(practitionner);
     }
 
-    @Override
-    public void deletePractitionner(Long id) {
-        practitionnerRepository.deleteById(id);
-    }
+
 
     @Override
     public List<Practitionner> displayPractitionner() {
@@ -67,8 +64,5 @@ public class PractitionnerServiceImpl implements PractitionnerService {
         return practitionnerRepository.findPractitionnerByPractitionnerEmail(practitionnerEmail);
     }
 
-    @Override
-    public List<Patient> getPatientsByPractitionner(Practitionner practitioner) {
-        return patientRepository.findByPractitionner(practitioner); // Recherche des patients associés à un praticien
-    }
+
 }

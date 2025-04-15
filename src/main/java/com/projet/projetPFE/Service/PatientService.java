@@ -15,4 +15,5 @@ public interface PatientService {
 
     List<Patient> getPatientsByPractitionner(Practitionner practitioner);
     List<Patient> getPatientByPractitionner(String practitionerEmail);
+
 }

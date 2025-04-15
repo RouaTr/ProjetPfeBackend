@@ -16,6 +16,8 @@ public class Patient {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     /*@JsonProperty*/
     private Long id;
+    @Column(name = "medical_record_number", unique = true)
+    private String medicalRecordNumber;
     private String lastName;
     private String firstName;
 
@@ -79,6 +81,7 @@ public class Patient {
     private Date contaminationDate;
 
     private String cdcStage;
+
     @OneToMany(mappedBy = "patient", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JsonIgnore
     private List<MedicalHistory> medicalHistories;
@@ -101,8 +104,7 @@ public class Patient {
     @OneToMany(mappedBy = "patient", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     @JsonIgnore
     private List<MedicalTreatment> medicalTreatments;
-    @OneToMany(mappedBy = "patient", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
-      @JsonIgnore
+
     @ManyToOne
     @JoinColumn(name = "practitionner_id")
     private Practitionner practitionner;
@@ -131,6 +133,13 @@ public class Patient {
 
     public void setId(Long id) {
         this.id = id;
+    }
+    public String getMedicalRecordNumber() {
+        return medicalRecordNumber;
+    }
+
+    public void setMedicalRecordNumber(String medicalRecordNumber) {
+        this.medicalRecordNumber = medicalRecordNumber;
     }
 
     public String getLastName() {

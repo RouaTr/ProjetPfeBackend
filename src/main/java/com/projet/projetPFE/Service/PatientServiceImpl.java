@@ -24,10 +24,36 @@ public class PatientServiceImpl implements PatientService {
     public Patient addPatient(Patient patient) {
         return patientRepository.save(patient);
     }
-
     @Override
-    public Patient updatePatient(Long id, Patient patient,String practitionnerEmail) {
-        return patientRepository.save(patient);
+    public Patient updatePatient(Long id, Patient patient, String practitionnerEmail) {
+        // Récupérer le patient existant
+        Optional<Patient> existingPatientOpt = patientRepository.findById(id);
+
+        if (existingPatientOpt.isPresent()) {
+            Patient existingPatient = existingPatientOpt.get();
+
+            // Vérifier si le médecin traitant n'a pas changé
+            if (patient.getPractitionner() != null && existingPatient.getPractitionner() != null) {
+                if (!patient.getPractitionner().getPractitionnerEmail().equals(existingPatient.getPractitionner().getPractitionnerEmail())) {
+                    // Si ce n'est pas le médecin du praticien connecté, on ne change pas le médecin
+                    if (!existingPatient.getPractitionner().getPractitionnerEmail().equals(practitionnerEmail)) {
+                        // Si le médecin traitant n'est pas celui du praticien connecté, on ne change rien
+                        patient.setPractitionner(existingPatient.getPractitionner());
+                    }
+                }
+            }
+
+            // Mettre à jour les autres champs
+            existingPatient.setLastName(patient.getLastName());
+            existingPatient.setFirstName(patient.getFirstName());
+            // Ajouter ici toutes les autres propriétés à mettre à jour...
+
+            // Sauvegarder le patient mis à jour
+            return patientRepository.save(existingPatient);
+        }
+
+        // Si le patient n'existe pas, retourner null ou lancer une exception
+        return null;
     }
 
     @Override
@@ -65,4 +91,5 @@ public class PatientServiceImpl implements PatientService {
         // Retourner une liste vide si le praticien n'est pas trouvé
         return new ArrayList<>();
     }
+
 }
