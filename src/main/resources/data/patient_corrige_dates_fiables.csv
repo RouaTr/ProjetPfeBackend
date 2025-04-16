@@ -1,0 +1,391 @@
+medicalRecordNumber,lastName,firstName,practitionner_id,gender,birthDate,age,positiveHIVDate
+F 315/21,Camus,Anouk,15,Homme,01/01/1979,46,08/10/2021
+F 97/15,Le Goff,Isaac,15,Femme,02/09/1983,42,01/01/2015
+76/17,Descamps,Élodie,15,Femme,15/04/1965,60,01/01/2017
+F 414/21,Mathieu,Dorothée,15,Homme,06/02/1990,35,03/12/2021
+526/21,Hernandez,Susanne,15,Femme,13/03/1989,36,16/08/2021
+F 131/21,Chrétien,Caroline,15,Homme,28/01/1991,34,24/05/2021
+180/15,Paris,Juliette,15,Femme,03/07/1984,41,01/01/2015
+F 26/16,Lelièvre,Émile,15,Homme,10/08/1985,40,01/01/2016
+F 125/21,Laporte,Frédéric,15,Homme,12/03/1980,45,18/05/2021
+F01/19,Roche,Aurore,15,Homme,09/11/1992,33,01/01/2018
+F 57/22,Alexandre,Lorraine,15,Femme,05/06/1991,34,13/02/2022
+655/19,Gros,Anne,15,Femme,19/05/1977,48,01/01/2019
+109/22,Laroche,Renée,15,Femme,06/05/1989,36,06/03/2022
+327/18 ,Marty,Catherine,15,Homme,09/03/2017,8,01/01/2017
+193/17,Dubois,Émile,15,Homme,09/04/1984,41,01/01/2017
+406/18,Lebon,Franck,15,Femme,13/06/1976,49,01/01/2018
+F170/17,Bourgeois,Jérôme,15,Homme,06/03/1980,45,01/01/2017
+171/17,Gay,Nicolas,15,Homme,09/07/1983,42,01/01/2017
+316/20,Delannoy,Jeanne,15,Femme,08/05/1996,29,01/01/2020
+F 186/17,Rousseau,Audrey,15,Homme,31/12/1991,34,01/01/2017
+340/17,Vallet,Sylvie,15,Homme,28/05/1975,50,01/01/2017
+F470/17,Vasseur,Josette,15,Homme,18/04/1974,51,01/01/2017
+F 152/13,Samson,Alice,15,Femme,09/11/1992,33,01/01/2013
+119/04,Pichon,Benoît,15,Homme,13/05/1981,38,01/01/2004
+251/21,Texier,Julien,15,Homme,01/05/1994,31,05/05/2021
+239/20,Lopez,Véronique,15,Femme,04/03/1986,39,01/01/2020
+F 170/19,Da Costa,Alfred,15,Homme,17/08/1982,43,01/01/2019
+5/13,Loiseau,Rémy,15,Homme,22/12/1960,65,01/01/2013
+F 661/14,Dos Santos,Stéphane,15,Homme,01/08/1990,35,01/01/2014
+595/00,Raynaud,Bernadette,15,Femme,12/06/1951,74,01/01/2000
+F 278/21,Costa,Théodore,15,Homme,05/01/1990,35,16/09/2021
+253/15,Ollivier,Martin,15,Homme,03/04/1981,44,01/01/2015
+159/14,Mace,Monique,15,Homme,08/07/1986,39,01/01/2013
+F 314/14,Maréchal,Aimée,15,Homme,19/01/1977,48,01/01/2014
+371/21,Benard,Pauline,15,Femme,28/10/1986,39,25/05/2021
+185/17,Jacquot,Frédérique,15,Femme,25/08/1986,39,01/01/2017
+637/21,Mahe,Adrien,15,Homme,01/01/1986,39,01/10/2021
+283/18,Bouchet,Catherine,15,Homme,21/09/1980,45,01/01/2018
+482/12,Descamps,Alfred,15,Homme,27/06/1972,53,01/01/2012
+259/16,Henry,Antoinette,15,Homme,21/10/1986,39,01/01/2016
+561/02,Hamon,Élodie,15,Homme,24/06/1966,59,01/01/1997
+35/18,Bernard,Nath,15,Femme,25/05/1985,40,01/01/2018
+269/04,David,Alphonse,15,Homme,28/06/1976,49,01/01/1994
+F 332/18,Traore,Aurore,15,Homme,15/06/1971,54,01/01/2018
+  F 291/13,Reynaud,Honoré,15,Femme,12/10/1973,52,01/01/2013
+753/19,Petit,Sophie,15,Homme,03/09/1971,54,01/01/2019
+39/16,Menard,Olivie,15,Homme,28/07/1995,30,01/01/2016
+542/23,Blondel,Benoît,15,Femme,02/11/1977,48,01/01/2016
+194/19,Albert,Marguerite,15,Homme,20/04/1985,40,01/01/2018
+F891/18,Gay,Camille,15,Homme,18/10/2010,15,01/01/2018
+F810/12,Adam,Raymond,15,Homme,01/01/1980,46,01/01/2012
+607/95,Boulanger,Marcel,15,Homme,30/06/1982,43,01/01/1987
+145/16,Guillon,Denis,15,Homme,21/08/1984,41,01/01/2016
+95/18,Besson,Éric,15,Femme,06/09/1998,27,01/01/2018
+261/18,Duhamel,Timothée,15,Homme,19/01/1988,37,01/01/2018
+20/11,Chartier,Henri,15,Homme,17/07/1984,41,01/01/2011
+641/03,Dubois,Édith,15,Homme,16/02/1963,62,01/01/1988
+381/09,Boucher,Zacharie,15,Homme,27/09/1966,59,01/01/2005
+F265/21,Roux,Caroline,15,Homme,01/02/1986,39,09/09/2021
+45/13,Thierry,Jérôme,15,Femme,30/09/2006,19,01/01/2012
+365/07,Sauvage,Raymond,15,Femme,22/09/1976,49,01/01/2005
+24/14,Guillou,Christine,15,Femme,13/08/1993,32,01/01/2013
+319/20,Roche,Alice,15,Homme,01/01/1995,30,01/01/2018
+263/14,Garcia,Lucie,15,Femme,24/02/1989,36,01/01/2014
+F419/14,Verdier,Grégoire,15,Homme,03/02/1977,48,01/01/2014
+F136/20,Maury,Sophie,15,Homme,20/01/1986,39,01/01/2020
+298/16,Duval,Lucas,15,Homme,11/11/1959,66,01/01/2016
+52/24,Le Goff,Corinne,15,Homme,02/05/1999,26,01/01/2020
+28/20,Paris,Noémi,15,Femme,19/07/1990,35,01/01/2015
+27/20,Dijoux,Louis,15,Homme,27/01/2015,10,01/01/2015
+187/10,Marion,Richard,15,Femme,04/06/1970,55,01/01/2010
+185/16,Delmas,Philippe,15,Homme,07/06/1992,33,01/01/2016
+414/19,Noël,Robert,15,Femme,23/06/1988,37,01/01/2019
+416/15,Gauthier,Margaux,15,Femme,12/06/2012,13,01/01/2015
+F 202/21,Cousin,Lucas,15,Homme,04/11/1996,29,30/07/2021
+514/18,Leduc,Henri,15,Homme,02/07/1993,32,01/01/2018
+221/20,Letellier,Caroline,15,Homme,01/01/2001,56,29/06/2020
+709/19,Pichon,Marie,15,Homme,17/12/1980,45,01/01/2019
+371/20,Lesage,Denise,15,Homme,12/02/1979,46,02/10/2020
+601/00,Laine,Adrien,15,Femme,10/08/1971,54,01/01/2000
+05/016,Bonnet,Laure,15,Homme,16/04/1973,52,01/01/2015
+240/14,Georges,Véronique,15,Homme,01/01/1990,35,01/01/2014
+122/13,Richard,Grégoire,15,Homme,23/09/1979,46,01/01/2013
+184/07,Menard,Renée,15,Femme,09/03/1962,63,01/01/2007
+321/21,Lebrun,Pierre,15,Homme,12/11/1988,37,11/05/2021
+F 333/11,Legros,Christophe,15,Homme,09/11/1980,45,01/01/2011
+F 626/99,Michaud,Aimée,15,Homme,06/03/1967,58,01/01/1999
+169/20,Clément,Audrey,15,Homme,17/04/1975,51,01/01/2020
+F 497/17,Morvan,Yves,15,Femme,05/01/1977,48,01/01/2017
+484/19,Fontaine,Jacqueline,15,Homme,17/04/1985,40,01/01/2018
+F 346/18,Brunel,Diane,15,Homme,22/05/1989,36,01/01/2018
+379/20,Schmitt,Renée,15,Homme,17/01/1971,54,01/01/2020
+154/20,Grégoire,Marc,15,Homme,31/10/1994,31,01/01/2016
+228/20,Boyer,Margot,15,Homme,28/07/1969,56,01/01/2020
+218/16,Schneider,Agnès,15,Homme,16/12/1992,33,01/01/2016
+325/14,Bruneau,Marine,15,Femme,28/02/1988,37,01/01/2012
+F 530/15,Morvan,Margaud,15,Femme,30/09/2014,11,01/01/2015
+F 359/11,Barbe,Sabine,15,Homme,03/08/1988,37,01/01/2015
+F 466/16,Laurent,Édith,15,Homme,22/05/1988,37,01/01/2016
+404/10,Besson,Jacques,15,Homme,21/09/1985,40,01/01/2010
+378/15,Guillou,Alice,15,Homme,02/10/1979,42,01/01/2015
+228/07,Perrin,René,15,Homme,14/08/2001,24,01/01/2007
+27/19,Guichard,Véronique,15,Homme,23/12/1983,42,01/01/2014
+F287/20,Hervé,Jean,15,Homme,03/08/1984,41,01/01/2020
+188/17,Didier,Guy,15,Femme,31/10/1989,36,01/01/2007
+118/24,Dumont,Odette,15,Homme,21/03/1978,47,01/01/2011
+246/00,Roche,Hugues,15,Femme,19/06/1974,51,01/01/1998
+163/01,Le Roux,Christiane,15,Femme,13/12/1972,53,01/01/1996
+536/18,Renard,Michèle,15,Homme,06/09/1986,39,01/01/2018
+71/18,Alves,Alfred,15,Femme,15/11/1975,50,01/01/2012
+F 9/22,Chartier,Jacqueline,15,Femme,14/06/1996,29,10/01/2022
+407/14,Richard,Célina,15,Femme,19/12/2012,13,01/01/2014
+211/13,Lejeune,Maggie,15,Femme,10/03/1992,33,01/01/2013
+364/14,Colas,Honoré,15,Femme,12/04/1968,57,01/01/2013
+266/21,Martin,Corinne,15,Femme,26/06/1985,40,01/01/2011
+130/03,Masson,Margot,15,Homme,30/12/1962,63,01/01/1993
+707/21,Martins,Julien,15,Homme,07/11/1985,40,23/12/2021
+F149/11,Lefebvre,Margaret,15,Homme,25/08/1951,74,01/01/1988
+307/18,Delaunay,Brigitte,15,Femme,19/08/1981,44,01/06/2018
+314/14,Goncalves,Alex,15,Homme,27/01/1976,49,01/01/2014
+F 142/21,Pottier,André,15,Homme,20/03/1997,28,28/05/2021
+279/20,Delannoy,Geneviève,15,Homme,08/04/2004,21,01/01/2020
+F 212/07,Klein,Émile,15,Homme,25/06/1985,40,01/01/2005
+487/21,Lenoir,Jeanne,15,Homme,21/01/1990,35,01/01/2020
+575/21,Peron,Raymond,15,Femme,28/05/1987,38,06/09/2021
+182/01,Dupont,Aimée,15,Homme,29/05/1967,58,01/01/2001
+16/16,Georges,Émilie,15,Homme,18/01/1989,36,01/01/2016
+297/02,Labbé,Adèle,15,Femme,19/05/1968,57,01/01/2002
+F 442/21,Rousseau,Frédéric,15,Homme,27/01/1974,51,30/12/2021
+183/17,Schmitt,Olivie,15,Homme,20/01/1994,31,01/01/2017
+238/12,Moreau,Roger,15,Femme,16/11/1947,78,01/01/2012
+489/19,Normand,Eugène,15,Homme,19/08/1980,45,01/01/2019
+47/16,Dupré,Patricia,15,Femme,10/10/1988,37,01/01/2016
+211/07,Maury,Marcelle,15,Homme,31/01/1979,46,01/01/2007
+114/15,Foucher,Benoît,15,Femme,07/10/1993,32,01/01/2015
+F 686/01,Weiss,Aimé,15,Femme,17/11/1996,29,01/01/1998
+ 170/19,Benard,Thibaut,15,Homme,03/09/1971,54,01/01/2019
+F18/20,Costa,Marcel,15,Homme,18/02/1991,34,01/01/2020
+F 234/21,Nguyen,Henriette,15,Homme,09/09/1975,50,19/08/2021
+618/03,Techer,Luc,15,Homme,20/09/2001,24,01/01/2003
+619/03,Guyon,Michelle,15,Femme,29/01/1968,57,01/01/2003
+19/16,Leclerc,Guillaume,15,Femme,15/02/1990,35,01/01/2015
+F 33/15,Fernandes,Lucy,15,Femme,08/05/1992,33,01/01/2014
+370/06,Paul,Thérèse,15,Femme,18/01/1967,58,01/01/2006
+33/17,Garnier,Charles,15,Femme,11/04/1989,36,01/01/2017
+299/14,Joubert,Antoine,15,Homme,01/01/2001,42,01/01/2013
+263/07,Moreno,Danielle,15,Femme,03/09/1969,56,01/01/2005
+F 154/13,Masse,Victor,15,Homme,22/07/1985,40,01/01/2011
+532/06,Chevallier,Daniel,15,Homme,29/10/1977,48,01/01/2006
+300/19,Leclercq,Claudine,15,Homme,05/07/1995,46,01/01/2019
+280/23,Clément,Valentine,15,Homme,03/07/1996,29,27/10/2021
+F311/14,Berthelot,Charles,15,Femme,01/01/2001,48,01/01/2014
+214/20,Cousin,Chantal,15,Homme,02/09/1997,28,01/01/2020
+237/21,Tessier,Zoé,15,Homme,09/10/1975,50,01/01/2021
+599/22,Lelièvre,Geneviève,15,Homme,21/07/1994,31,01/01/2021
+F 119/15,Verdier,Patricia,15,Homme,05/05/1975,50,01/01/2015
+121/09,Toussaint,Antoine,15,Femme,02/11/1978,47,01/01/2009
+F 132/21,Bazin,Bernard,15,Homme,09/11/1976,49,25/05/2021
+F 124/13,Guillou,Daniel,15,Femme,18/11/1967,58,01/01/2013
+173/01,Guillaume,Claire,15,Femme,25/02/1968,57,01/01/2001
+32/17,Roche,Juliette,15,Homme,11/12/1989,37,01/01/2017
+2/20,Perrin,Alfred,15,Femme,20/09/1968,57,01/01/2019
+288/20,Chauvet,Cécile,15,Homme,12/02/1977,48,01/01/2020
+ F 115/10,Gautier,Anne,15,Homme,03/08/1984,41,01/01/2010
+64/11,Duval,Philippine,15,Femme,21/01/1980,45,01/01/2011
+F 22/22,Charrier,Clémence,15,Homme,19/06/1988,37,19/01/2022
+172/16,Bonneau,Valérie,15,Femme,03/03/1990,35,01/01/2016
+295/04,Boutin,Corinne,15,Homme,24/04/1975,50,01/01/2004
+524/19,Lebrun,Alexandre,15,Homme,15/01/1980,45,01/01/2019
+188/19,Schneider,Christophe,15,Femme,19/03/1985,45,01/01/2019
+F 571/11,Maréchal,Nicolas,15,Homme,01/01/1986,40,01/01/2011
+F 396/13,Lejeune,Caroline,15,Homme,17/08/1981,44,01/01/2013
+622/21,Thierry,Véronique,15,Homme,19/03/1997,28,20/07/2021
+F 09/09,Daniel,Antoine,15,Femme,14/03/1974,51,01/01/2009
+F562/15,Jacquot,Isabelle,15,Femme,05/10/1974,51,01/01/2015
+F 117/10 ,Lemaître,Isaac,15,Femme,12/06/1974,40,01/01/2010
+187/17,Dupuy,Aimée,15,Homme,01/02/1967,58,01/01/2017
+188/10,Allain,Lucas,15,Homme,01/01/2001,58,01/01/2017
+567/21,Guillou,Françoise,15,Homme,16/02/1996,29,01/01/2017
+F 114/14,Peron,Claire,15,Homme,11/02/1983,42,01/01/2014
+125/19,Thierry,Suzanne,15,Femme,04/12/1979,42,01/01/2019
+73/20,Rivière,Hugues,15,Femme,28/10/1995,30,01/01/2020
+F 186/15,Menard,Adélaïde,15,Homme,30/04/1983,42,01/01/2009
+118/17,Charpentier,Agathe,15,Homme,08/06/1984,41,01/01/2017
+398/11,Renault,Denis,15,Homme,20/02/1989,36,01/01/2011
+164/97,Gonzalez,Jean,15,Homme,27/09/1970,55,01/01/1997
+45/14,Girard,Joséphine,15,Femme,21/07/1989,36,01/01/2009
+F 70/99 ,Joly,Antoinette,15,Femme,04/12/1963,62,01/01/1999
+366/07,Jean,Aimé,15,Homme,24/04/1962,63,01/01/1995
+40/22,Lacombe,Nicole,15,Femme,06/10/1983,42,20/01/2022
+F 18/22,Marty,Claudine,15,Homme,10/12/1997,28,18/01/2022
+126/22,Pruvost,Victoire,15,Homme,18/02/1995,30,04/03/2022
+105/22,Lebon,Valentine,15,Homme,09/11/1982,43,01/01/2015
+110/22,Deschamps,Andrée,15,Homme,22/11/1978,47,04/03/2022
+F 85/22,Legrand,Aurélie,15,Homme,16/05/1976,49,22/03/2022
+148/22,Joubert,Roland,15,Femme,22/03/1965,60,04/07/1905
+176/22,Grégoire,Richard,15,Homme,22/10/1991,34,15/04/2022
+181/22,Rey,Bernadette,15,Homme,26/10/1987,38,30/04/2022
+202/22,Chauveau,Christiane,15,Homme,21/12/1989,36,18/05/2022
+623/22,Normand,Gilbert,15,Homme,22/09/1969,56,19/05/2022
+F 180/22,Cousin,Sébastien,15,Homme,01/06/2001,24,25/05/2022
+213/22,Meunier,Charles,15,Homme,02/09/1979,46,26/05/2022
+221/12,Thibault,François,15,Homme,15/10/1984,41,01/01/2012
+228/22,Renault,Margot,15,Homme,17/08/1971,54,03/06/2022
+F 195/22,Philippe,Émile,15,Homme,13/02/1992,33,13/06/2022
+F 185/22,Guillou,Capucine,15,Homme,24/08/1967,58,08/06/2022
+F 230/22,Launay,Margot,15,Homme,09/06/1992,33,08/06/2022
+F 231/22,Leroy,Timothée,15,Homme,03/02/1986,39,29/06/2022
+F 276/22,Couturier,Daniel,15,Homme,28/01/1992,27,13/07/2022
+339/22,Marques,Agnès,15,Homme,25/11/1988,37,02/08/2022
+11/test,Vallet,Thibault,15,Homme,01/10/1995,30,07/07/2022
+370/22,Lagarde,Andrée,15,Homme,20/08/1999,26,15/08/2022
+324/22,Roger,Aimée,15,Homme,23/01/1981,44,24/07/2022
+F 376/22,Guyot,Roger,15,Homme,12/02/1993,32,05/09/2022
+F 393/22,Thibault,Denise,15,Homme,10/03/1984,41,12/09/2022
+395/22,Huet,François,15,Homme,21/03/1992,33,01/08/2022
+443/22,Jean,Caroline,15,Femme,16/04/2007,18,21/09/2022
+F 438/22,Humbert,Frédéric,15,Homme,16/02/1984,41,29/09/2022
+549/22,Valentin,Célina,15,Femme,17/07/1991,34,27/09/2022
+F 429/22,Fernandes,Guy,15,Homme,13/11/1986,39,23/08/2022
+F 428/22,Bazin,Susanne,15,Femme,03/06/1993,32,23/08/2022
+501/22,Courtois,Étienne,15,Homme,14/03/1998,27,23/09/2022
+F 319/22,Lebrun,Manon,15,Homme,25/11/1997,28,09/08/2022
+524/22,Hamon,Stéphane,15,Homme,10/08/1960,65,10/10/2022
+528/22,Nicolas,Gérard,15,Homme,14/12/1986,39,11/10/2022
+F 2/23,Hebert,Éric,15,Homme,08/09/1983,42,29/11/2022
+596/22,Louis,Emmanuelle,15,Femme,15/05/1965,60,14/11/2022
+F 594/22,Gillet,Tristan,15,Homme,28/05/1988,37,21/11/2022
+F 605/22,Gautier,Alfred,15,Homme,24/01/1975,50,23/11/2022
+F 604/22,Pinto,Émilie,15,Homme,05/11/1996,29,29/11/2022
+F 610/22,Jacquot,Sébastien,15,Homme,07/04/2004,21,02/12/2022
+F 625/22,Lévêque,Véronique,15,Homme,27/01/1998,27,09/12/2022
+F 641/22,Blanchard,André,15,Homme,20/09/1996,29,21/12/2022
+F 657/23,Ollivier,Gilles,15,Homme,20/07/1992,33,05/01/2023
+F 11/23,Mercier,Margaux,15,Femme,12/02/1986,39,09/01/2023
+F 17/23,Girard,Alfred,15,Homme,30/11/1992,33,12/01/2023
+24/23,Le Roux,Margaud,15,Homme,19/02/1990,35,17/01/2023
+F 38/23,Mahe,Françoise,15,Homme,26/07/2002,23,30/01/2023
+58/23,Labbé,Adrienne,15,Homme,23/04/1991,34,09/02/2023
+F 63/23,Arnaud,Laetitia,15,Homme,16/05/1992,33,15/02/2023
+F 72/23,Colin,Théodore,15,Homme,21/06/1997,28,17/02/2023
+F 392/23,Rousseau,Julien,15,Homme,14/01/1987,38,27/02/2023
+F 108/23,Fabre,Gilles,15,Homme,08/03/1996,29,21/03/2023
+265/23,Delaunay,Olivier,15,Femme,04/07/1998,27,29/03/2023
+F 127/23,Berthelot,Olivier,15,Homme,29/08/1987,38,29/03/2023
+F 125/23,Couturier,Hugues,15,Homme,16/08/1993,32,30/03/2023
+F 126/23,Weiss,Georges,15,Homme,05/01/1955,70,30/03/2023
+F 130/23,Chauveau,Philippine,15,Femme,17/01/1986,39,30/03/2023
+F 187/23,Allain,Claire,15,Femme,12/02/1960,65,10/04/2023
+218/23,Delattre,Aurélie,15,Homme,23/01/1992,33,17/04/2023
+F 391/23,Hoareau,Yves,15,Femme,01/06/1978,47,20/03/2023
+189/23,Delahaye,Benjamin,15,Homme,10/06/1989,36,04/05/2023
+179/23,Gomez,Anaïs,15,Homme,04/02/1960,65,25/04/2023
+F 201/23,Brun,Madeleine,15,Femme,02/06/1998,27,13/05/2023
+F 294/23,Pascal,David,15,Homme,17/11/2022,3,12/05/2023
+201/23,Alexandre,Zoé,15,Homme,15/10/1992,33,11/05/2023
+208/23,Vaillant,Alfred,15,Homme,16/02/1989,36,15/05/2023
+214/23,Leblanc,Renée,15,Homme,17/04/1972,53,17/05/2023
+202/23,Leroy,Luce,15,Homme,29/10/1994,31,12/05/2023
+220/23,Blanchet,Denise,15,Homme,11/11/1979,46,19/05/2023
+F 220/23,Vasseur,Charlotte,15,Homme,20/05/2000,25,21/05/2023
+242/23,Barbier,Roger,15,Homme,11/06/1967,58,02/06/2023
+377/23,Gosselin,Cécile,15,Homme,29/05/1995,30,12/06/2023
+F 303/23,Roche,Suzanne,15,Homme,17/12/1982,43,12/07/2023
+320/23,Weiss,Benjamin,15,Homme,05/05/1974,51,14/07/2023
+F 335/23,Guérin,Martin,15,Homme,19/11/1989,36,24/07/2023
+371/23,Leclerc,Zoé,15,Femme,23/02/1999,26,08/08/2023
+F 366/23,Durand,Joseph,15,Homme,22/12/1985,40,03/08/2023
+F 365/23,Lebon,Christine,15,Femme,19/07/1994,31,03/08/2023
+F 382/23,Lagarde,Olivie,15,Homme,22/07/1984,41,22/07/2023
+F 381/23,Schmitt,Noël,15,Homme,06/04/1992,33,07/08/2023
+147/24,Lemoine,Inès,15,Homme,08/08/1958,67,22/08/2023
+F 437/23,Lenoir,Hortense,15,Femme,24/01/1957,68,22/08/2023
+F 547/23,Lagarde,Susan,15,Homme,04/09/1990,35,28/09/2023
+553/23,Schneider,Théodore,15,Homme,22/12/1997,28,29/09/2023
+541/23,Morvan,Hortense,15,Homme,23/08/1988,37,06/10/2018
+F 571/23,Bazin,Maggie,15,Homme,20/07/1999,26,13/10/2023
+592/23,Briand,Robert,15,Homme,03/07/1987,38,31/10/2021
+25/2020,Mallet,Éléonore,15,Homme,04/12/1976,49,01/01/2005
+F 634/23,Navarro,Emmanuelle,15,Homme,16/09/1982,43,06/11/2023
+F 635/23,Dos Santos,Susan,15,Homme,06/04/2002,23,07/11/2023
+659/23,Rémy,Anouk,15,Homme,01/01/1985,40,23/11/2023
+F 716/23,Fouquet,Marianne,15,Homme,16/05/2000,25,12/12/2023
+F 744/23,Marques,Simone,15,Homme,05/06/1990,35,19/12/2023
+695/23,Lagarde,Marc,15,Homme,12/08/1988,37,19/12/2023
+23/24,Aubry,Audrey,15,Femme,28/03/2001,24,27/12/2023
+104/24,Laroche,Théodore,15,Homme,06/11/2001,24,22/01/2024
+40/24,Carlier,Alex,15,Homme,11/10/1983,42,02/07/2022
+56/24,Clément,Susan,15,Homme,22/10/1984,41,10/02/2024
+F 58/24,Diaz,Adrien,15,Homme,17/05/1997,28,06/02/2024
+83/24,Dupuis,Pauline,15,Homme,23/01/1981,44,14/02/2024
+88/24,Leblanc,Aurore,15,Homme,25/11/1987,38,15/02/2024
+148/24,Lopez,Philippine,15,Femme,22/08/1984,41,18/03/2023
+176/24,Gautier,Marthe,15,Homme,16/06/1995,30,08/04/2024
+288/24,Julien,Édith,15,Homme,03/09/1997,28,16/04/2024
+217/24,Rivière,Andrée,15,Homme,13/04/1976,49,20/04/2024
+213/24,Rousseau,Jacques,15,Homme,29/05/1966,59,24/04/2024
+F 190/24,Lecomte,Sylvie,15,Homme,17/02/2003,22,03/05/2024
+F 258/24,Courtois,Alexandrie,15,Femme,29/03/1993,32,01/01/2001
+F 220/24,Perez,Henri,15,Homme,03/09/1986,39,16/06/2024
+F 248/24,Schneider,Alix,15,Homme,30/10/2018,7,22/06/2024
+F 260/24,Dumont,Emmanuel,15,Homme,23/06/2004,21,01/07/2024
+F 259/24,Le Goff,David,15,Femme,24/04/1987,38,01/07/2024
+F 262/24,David,Françoise,15,Homme,03/10/2002,23,04/07/2024
+292/24,Chevallier,Clémence,15,Homme,13/05/2005,20,09/07/2024
+399/24,Roux,Isabelle,15,Homme,02/07/1994,31,01/01/2001
+F 326/24,Carlier,Océane,15,Homme,27/04/1986,39,01/01/2001
+F 294/24,Morvan,Laetitia,15,Homme,20/10/1983,42,01/01/2001
+F 293/24,Chrétien,Marie,15,Femme,09/01/1994,31,01/01/2001
+369/24,Rémy,Nicole,15,Femme,11/05/1973,52,01/01/2001
+F 351/24,Lecoq,Hélène,15,Homme,26/02/1967,58,01/01/2001
+F 378/25,Raymond,Théophile,15,Homme,21/01/1986,39,01/01/2001
+F 386/24,Breton,Vincent,15,Homme,17/08/1991,34,01/01/2001
+465/24,Olivier,Élodie,15,Femme,18/07/1988,37,01/01/2001
+474/24,Blanchet,William,15,Homme,03/01/1968,57,01/01/2001
+450/24,Olivier,Frédérique,15,Homme,05/10/1995,30,01/01/2001
+470/24,Mathieu,Sylvie,15,Femme,1988-12-02 00:00:00,37,02/09/2024
+F 320/24,Perrier,Constance,15,Femme,19/11/1992,33,01/01/2001
+F 480/24,Moulin,Édith,15,Femme,25/06/1991,34,01/01/2001
+F 135/22,Morin,Stéphane,15,Homme,15/09/1994,31,23/09/2024
+494/24,Normand,Clémence,15,Homme,22/06/1992,33,01/01/2001
+517/24,De Oliveira,Colette,15,Homme,10/02/1994,31,03/10/2024
+F 950/24,Bigot,Jeanne,15,Homme,16/06/2001,24,10/10/2024
+F 489/24,Robin,Patricia,15,Femme,11/09/1962,63,10/10/2024
+11/test,Teixeira,Diane,15,,22/02/2001,24,21/10/2024
+549/24,Leblanc,Suzanne,15,Homme,28/06/1982,43,16/10/2024
+F 520/24,Gallet,Robert,15,Homme,06/07/1969,56,01/01/2001
+511/22,Philippe,Andrée,15,Homme,15/04/1971,54,24/10/2024
+570/24,Dumas,Bernadette,15,Homme,01/09/1980,45,01/01/2001
+589/24,Joubert,Julie,15,Homme,23/05/1992,33,01/01/2001
+F 486/24,Barthelemy,Luc,15,Homme,22/04/1988,37,01/01/2001
+F 585/24,Gillet,Margaud,15,Homme,13/03/1992,33,01/01/2001
+F 597/24,Poirier,Jeanne,15,Homme,17/02/1986,39,01/01/2001
+603/24,Boulanger,Jeanne,15,Homme,09/06/1977,48,01/01/2001
+F 607/24,Renard,François,15,Homme,25/11/1993,32,01/01/2001
+F 608/24,Leroux,Thierry,15,Homme,02/03/1984,41,01/01/2001
+626/24,Petit,Renée,15,Homme,22/11/1991,34,01/01/2001
+637/24,Seguin,Arthur,15,Homme,30/12/1973,52,01/01/2001
+F 14/25,Da Silva,Arnaude,15,Homme,29/11/1999,26,06/01/2025
+11/test,Masse,Gérard,15,Homme,01/01/1957,68,27/01/2025
+F 51/25,Clerc,Henri,15,Homme,02/12/1997,28,01/01/2001
+F 52/25,Brun,Laetitia,15,Homme,30/08/2004,21,30/01/2025
+F 72/25,Weber,Benoît,15,Homme,06/04/2001,24,06/02/2025
+F 53/25,Perrot,Stéphane,15,Homme,13/12/1991,34,01/01/2001
+58/25,Pelletier,Marc,15,Homme,18/11/1997,28,01/01/2001
+65/25,Denis,Xavier,15,Homme,06/02/1956,69,01/01/2001
+F 66/25,Leclerc,Étienne,15,Homme,14/07/2003,22,10/02/2025
+F 316/20,Vidal,Lorraine,15,Homme,17/04/1992,33,01/01/2001
+F 83/25,Fleury,Alain,15,Homme,18/03/2005,20,01/01/2001
+F 82/25,Millet,Émilie,15,Homme,04/12/1954,71,01/01/2001
+F 98/25,Bazin,François,15,Homme,19/06/1993,32,01/01/2001
+F 99/25,Maurice,Roger,15,Homme,03/01/2001,24,01/01/2001
+11/test,Bonnet,Olivie,15,Homme,28/09/1984,41,01/01/2001
+F 115/25,Thierry,Benjamin,15,Homme,14/03/1991,34,27/03/2025
+11/test,Delannoy,Aimée,15,Homme,10/07/1974,51,03/04/2025
+11/test,Descamps,Bernadette,15,Homme,01/01/2001,24,01/01/2001
+11/test,Rodriguez,Alain,15,Homme,01/01/2001,24,01/01/2001
+F 312/19,Perrier,Andrée,15,Homme,21/05/1987,38,01/01/2019
+F 363/11,Morin,Astrid,15,Homme,30/04/1970,55,01/01/2011
+F 364/11,Devaux,Stéphane,15,Femme,22/03/1977,48,01/01/2011
+229/20,Clément,Patricia,15,Homme,13/06/1964,61,01/01/2020
+317/21,Le Goff,Nath,15,Homme,01/01/1971,54,03/06/2021
+F 231/14,Dos Santos,Diane,15,Femme,01/01/2001,40,01/01/2001
+105/23,Olivier,Gérard,15,Femme,30/10/1954,71,23/02/2023
+185/23,Carre,Timothée,15,Femme,06/06/1984,41,15/11/2013
+F 80/23,Marchal,Daniel,15,Femme,16/11/1980,45,02/08/2023
+394/23,Bertrand,Bernard,15,Homme,02/04/1986,39,02/07/2023
+457/23,Gros,Zoé,15,Femme,05/09/1992,33,07/09/2023
+33/24,Cousin,Susanne,15,Femme,19/08/1987,38,19/01/2024
+150/24,Cousin,Laetitia,15,Femme,09/12/2000,25,21/03/2024
+29/23,Bernard,Michelle,15,Femme,11/07/1993,32,01/01/2001
+400/24,Chevallier,Adrien,15,Femme,01/01/2001,24,01/01/2001
+11/test,Fernandez,Renée,15,Femme,02/10/1990,35,01/01/2001
+11/test,Berthelot,Christophe,15,Femme,09/09/1994,31,01/01/2001
+11/test,Rivière,Alex,15,Femme,01/01/2001,24,29/07/2024
+F 419/24,Letellier,Édouard,15,Homme,19/05/1951,74,12/09/2024
+501/24,Navarro,André,15,Femme,05/06/1982,43,01/01/2001
+505/24,Carlier,Franck,15,Femme,14/10/1994,31,25/09/2024
+11/test,Pages,Lucy,15,Femme,05/04/1997,28,17/10/2024
+F 268/23,Vallée,Patricia,15,Homme,05/11/2000,25,12/06/2023
+586/24,Leconte,Agnès,15,Homme,18/04/1992,33,01/01/2001
+11/test,Jacques,Pauline,15,Femme,01/02/1983,42,01/01/2001
+F 584/24,Charpentier,Émile,15,Homme,06/05/1986,39,01/01/2001
+11/test,Lacroix,Zoé,15,Femme,10/06/1990,35,01/01/2001
+F 598/24,Ferrand,Astrid,15,Femme,07/07/1996,29,01/01/2001
+F 53/22,Benard,Michelle,15,Homme,03/02/1991,34,01/04/2021
+85/25,Ribeiro,Madeleine,15,Homme,22/02/1996,29,01/01/2001
+11/test,Carpentier,Émile,15,Homme,01/01/2001,24,27/03/2025
+F 81/25,Guichard,Alexandrie,15,Homme,02/07/1999,26,01/01/2001
+11/test,Hoarau,Olivier,15,Homme,10/12/1985,40,01/01/2001

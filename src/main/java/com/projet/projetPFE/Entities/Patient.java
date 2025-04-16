@@ -26,7 +26,7 @@ public class Patient {
 
     private String gender;
     private String phoneNumber;
-
+    private Double age;
     private String city;
     private String region;
     private String postalCode;
@@ -108,6 +108,14 @@ public class Patient {
     @ManyToOne
     @JoinColumn(name = "practitionner_id")
     private Practitionner practitionner;
+
+    public Double getAge() {
+        return age;
+    }
+
+    public void setAge(Double age) {
+        this.age = age;
+    }
 
     public void setPractitionner(Practitionner practitionner) {
         this.practitionner = practitionner;
