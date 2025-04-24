@@ -3,6 +3,7 @@ package com.projet.projetPFE.Service;
 import com.projet.projetPFE.Entities.Laboratory;
 import com.projet.projetPFE.Entities.Observation;
 import com.projet.projetPFE.Entities.Patient;
+import com.projet.projetPFE.config.TrendDTO;
 
 import java.util.List;
 import java.util.Optional;
@@ -13,4 +14,5 @@ public interface LaboratoryService {
     List<Laboratory> displayLaboratory();
     Optional<Laboratory> displayLaboratoryById(Long id);
     List<Laboratory> findLaboratoryByPatientId(Long patientId);
+    List<TrendDTO> getTrendsForPatient(Long patientId);
 }

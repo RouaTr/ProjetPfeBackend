@@ -3,6 +3,7 @@ package com.projet.projetPFE.RestController;
 import com.projet.projetPFE.Entities.Laboratory;
 
 import com.projet.projetPFE.Service.LaboratoryService;
+import com.projet.projetPFE.config.TrendDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -48,6 +49,10 @@ public class LaboratoryRestController {
         return laboratoryService.displayLaboratoryById(id)
                 .map(ResponseEntity::ok)
                 .orElseGet(() -> ResponseEntity.notFound().build()); // Retourne une erreur 404 si le bilan n'existe pas
+    }
+    @GetMapping("/trends/patients/{patientId}")
+    public List<TrendDTO> getTrendsForPatient(@PathVariable Long patientId) {
+        return laboratoryService.getTrendsForPatient(patientId);
     }
 
 }

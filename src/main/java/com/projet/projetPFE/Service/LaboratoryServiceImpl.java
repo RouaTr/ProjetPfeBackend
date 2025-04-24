@@ -1,15 +1,20 @@
 package com.projet.projetPFE.Service;
 
 import com.projet.projetPFE.Entities.Laboratory;
+import com.projet.projetPFE.Entities.MedicalTreatment;
 import com.projet.projetPFE.Entities.Observation;
 import com.projet.projetPFE.Entities.Patient;
 import com.projet.projetPFE.Repository.LaboratoryRepository;
+import com.projet.projetPFE.Repository.MedicalTreatmentRepository;
 import com.projet.projetPFE.Repository.PatientRepository;
+import com.projet.projetPFE.config.TrendDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
+
 @Service
 public class LaboratoryServiceImpl implements LaboratoryService{
     @Autowired
@@ -67,4 +72,29 @@ public class LaboratoryServiceImpl implements LaboratoryService{
     public Optional<Laboratory> displayLaboratoryById(Long id) {
         return laboratoryRepository.findById(id);
     }
+    @Autowired
+    private MedicalTreatmentRepository medicalTreatmentRepository;
+    public List<TrendDTO> getTrendsForPatient(Long patientId) {
+        // Récupère les résultats de laboratoire pour le patient
+        List<Laboratory> labs = laboratoryRepository.findByPatientId(patientId);
+
+        // Récupère tous les traitements pour ce patient
+        List<MedicalTreatment> treatments = medicalTreatmentRepository.findByPatientId(patientId);
+
+        // Si aucun traitement n'est trouvé, on renvoie un traitement par défaut "Unknown"
+        return labs.stream()
+                .flatMap(lab -> treatments.stream()
+                        .map(treatment -> new TrendDTO(
+                                lab.getMedicaltestDate(),
+                                lab.getCd4Count(),
+                                lab.getViralLoad(),
+                                treatment.getTreatmentStartDate(),
+                                treatment.getNext_intake_Date(),
+                                treatment.getTreatmentName() // Utiliser le nom du traitement pour chaque laboratoire
+                        ))
+                )
+                .collect(Collectors.toList());
+    }
+
+
 }
