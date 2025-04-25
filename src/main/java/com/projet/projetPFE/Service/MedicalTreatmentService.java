@@ -11,4 +11,5 @@ public interface MedicalTreatmentService {
     List<MedicalTreatment> displayMedicalTreatment();
     Optional<MedicalTreatment> displayMedicalTreatmentById(Long id);
     List<MedicalTreatment> findMedicalTreatmentByPatientId(Long patientId);
+
 }
