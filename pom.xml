@@ -146,6 +146,12 @@
 			<systemPath>C:/filenet-jars/eeapi.jar</systemPath>
 		</dependency>
 		<dependency>
+			<groupId>nz.ac.waikato.cms.weka</groupId>
+			<artifactId>weka</artifactId>
+			<version>3.8.6</version>
+		</dependency>
+
+		<dependency>
 			<groupId>com.ibm.filenet</groupId>
 			<artifactId>stax-api</artifactId>
 			<version>5.5.0</version>

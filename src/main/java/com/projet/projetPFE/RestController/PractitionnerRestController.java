@@ -133,10 +133,10 @@ public class PractitionnerRestController {
 
 
     @GetMapping("/exists")
-  public ResponseEntity<Boolean> doesPatientExist(@RequestParam String practitionnerLastName, @RequestParam String practitionnerFirstName) {
-      boolean exists = practitionnerService.doesPractitionnerExist(practitionnerLastName, practitionnerFirstName);
-      return ResponseEntity.ok(exists);
-  }
+    public ResponseEntity<Boolean> doesPatientExist(@RequestParam String practitionnerLastName, @RequestParam String practitionnerFirstName) {
+        boolean exists = practitionnerService.doesPractitionnerExist(practitionnerLastName, practitionnerFirstName);
+        return ResponseEntity.ok(exists);
+    }
     @RequestMapping(value = "/{id}" , method = RequestMethod.GET)
     public Optional<Practitionner> getPractitionnerById(@PathVariable("id") Long id){
 

@@ -21,7 +21,7 @@ import java.io.InputStream;
 @Service
 public class FileNetDocumentServiceImpl implements FileNetDocumentService{
     @Override
-    public void uploadToFileNet(MultipartFile file, String title) throws Exception {
+    public String uploadToFileNet(MultipartFile file, String title) throws Exception {
         // Connexion à FileNet
         Connection conn = Factory.Connection.getConnection("http://192.168.56.101:9080/wsi/FNCEWS40MTOM/");
         Subject subject = UserContext.createSubject(conn, "GCD Administrator", "P@ssw0rd", null);
@@ -33,7 +33,7 @@ public class FileNetDocumentServiceImpl implements FileNetDocumentService{
         // Création du document
         Document doc = Factory.Document.createInstance(os, ClassNames.DOCUMENT);
         doc.getProperties().putValue("DocumentTitle", title);
-        doc.set_MimeType(file.getContentType());  // "application/pdf"
+        doc.set_MimeType(file.getContentType());
 
         // Contenu du fichier
         ContentTransfer ct = Factory.ContentTransfer.createInstance();
@@ -45,10 +45,15 @@ public class FileNetDocumentServiceImpl implements FileNetDocumentService{
 
         // Enregistrement dans FileNet
         doc.checkin(AutoClassify.DO_NOT_AUTO_CLASSIFY, CheckinType.MAJOR_VERSION);
-        doc.save(RefreshMode.NO_REFRESH);
+        doc.save(RefreshMode.REFRESH); // Utilise REFRESH pour récupérer les propriétés comme l'ID
+
+        String documentId = doc.get_Id().toString();
 
         UserContext.get().popSubject();
+
+        return documentId;  // 🔁 Retourne l'ID généré
     }
+
     @Override
     public InputStream downloadDocumentFromFileNet(String documentId) throws Exception {
         // Connexion à FileNet

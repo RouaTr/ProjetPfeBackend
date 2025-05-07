@@ -2,6 +2,7 @@ package com.projet.projetPFE.RestController;
 import com.projet.projetPFE.Service.FileNetDocumentService;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -18,16 +19,17 @@ public class FileNetController {
     private FileNetDocumentService fileNetDocumentService;
 
     @PostMapping("/upload")
-    public ResponseEntity<String> uploadToFileNet(
-            @RequestParam("file") MultipartFile file,
-            @RequestParam("title") String title) {
+    public ResponseEntity<String> uploadDocument(@RequestParam("file") MultipartFile file,
+                                                 @RequestParam("title") String title) {
         try {
-            fileNetDocumentService.uploadToFileNet(file, title);
-            return ResponseEntity.ok("Fichier enregistré avec succès dans FileNet.");
+            String documentId = fileNetDocumentService.uploadToFileNet(file, title);
+            return ResponseEntity.ok("Document uploaded with ID: " + documentId);
         } catch (Exception e) {
-            return ResponseEntity.status(500).body("Erreur lors de l'enregistrement : " + e.getMessage());
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("Upload failed: " + e.getMessage());
         }
     }
+
     // Méthode pour télécharger un fichier
     @GetMapping("/download/{documentId}")
     public void downloadFile(@PathVariable String documentId, HttpServletResponse response) {
