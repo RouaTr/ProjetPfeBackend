@@ -7,4 +7,5 @@ import java.io.InputStream;
 public interface FileNetDocumentService {
     String uploadToFileNet(MultipartFile file, String title) throws Exception;
     InputStream downloadDocumentFromFileNet(String documentId) throws Exception;
-}
+
+    String getMimeType(String documentId) throws Exception; }

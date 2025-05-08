@@ -56,21 +56,46 @@ public class FileNetDocumentServiceImpl implements FileNetDocumentService{
 
     @Override
     public InputStream downloadDocumentFromFileNet(String documentId) throws Exception {
-        // Connexion à FileNet
+        Connection conn = Factory.Connection.getConnection("http://192.168.56.101:9080/wsi/FNCEWS40MTOM/");
+        Subject subject = UserContext.createSubject(conn, "GCD Administrator", "P@ssw0rd", null);
+        UserContext uc = UserContext.get();
+        uc.pushSubject(subject);
+
+        try {
+            Domain domain = Factory.Domain.fetchInstance(conn, null, null);
+            ObjectStore os = Factory.ObjectStore.fetchInstance(domain, "DemoObjectStore", null);
+
+            Document doc = Factory.Document.fetchInstance(os, documentId, null);
+            ContentElementList contentList = doc.get_ContentElements();
+
+            if (contentList == null || contentList.isEmpty()) {
+                throw new Exception("Aucun contenu trouvé pour le document ID " + documentId);
+            }
+
+            ContentTransfer ct = (ContentTransfer) contentList.get(0);
+            return ct.accessContentStream();  // Retourne le flux
+
+        } catch (Exception e) {
+            throw e;
+        } finally {
+            uc.popSubject();  // Très important pour libérer proprement le contexte FileNet
+        }
+    }
+    @Override
+    public String getMimeType(String documentId) throws Exception {
         Connection conn = Factory.Connection.getConnection("http://192.168.56.101:9080/wsi/FNCEWS40MTOM/");
         Subject subject = UserContext.createSubject(conn, "GCD Administrator", "P@ssw0rd", null);
         UserContext.get().pushSubject(subject);
 
-        // Récupérer l'Object Store
         Domain domain = Factory.Domain.fetchInstance(conn, null, null);
         ObjectStore os = Factory.ObjectStore.fetchInstance(domain, "DemoObjectStore", null);
 
-        // Récupérer le document par son ID
         Document doc = Factory.Document.fetchInstance(os, documentId, null);
-        ContentElementList contentList = doc.get_ContentElements();
-        ContentTransfer ct = (ContentTransfer) contentList.get(0);
+        String mimeType = doc.get_MimeType();
 
-        // Retourner le flux de contenu du document
-        return ct.accessContentStream();  // Retourne InputStream
+        UserContext.get().popSubject();
+
+        return mimeType;
     }
+
 }

@@ -1,7 +1,11 @@
 package com.projet.projetPFE.RestController;
+
+import com.projet.projetPFE.Entities.MedicalDocument;
 import com.projet.projetPFE.Service.FileNetDocumentService;
+import com.projet.projetPFE.Service.MedicalDocumentService;
 import jakarta.servlet.http.HttpServletResponse;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -9,6 +13,10 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.time.LocalDate;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @RestController
 @RequestMapping("/filenet")
@@ -16,32 +24,60 @@ import java.io.InputStream;
 public class FileNetController {
 
     @Autowired
+    private MedicalDocumentService medicalDocumentService;
+
+    @Autowired
     private FileNetDocumentService fileNetDocumentService;
 
+    // Endpoint pour upload et enregistrer en BDD
     @PostMapping("/upload")
-    public ResponseEntity<String> uploadDocument(@RequestParam("file") MultipartFile file,
-                                                 @RequestParam("title") String title) {
+    public ResponseEntity<Map<String, Object>> uploadDocument(
+            @RequestParam("file") MultipartFile file,
+            @RequestParam("title") String title,
+            @RequestParam("patientId") Long patientId,
+            @RequestParam("type") String type,
+            @RequestParam("saveDate") @DateTimeFormat(iso = DateTimeFormat.ISO.DATE) LocalDate saveDate
+    ) {
         try {
-            String documentId = fileNetDocumentService.uploadToFileNet(file, title);
-            return ResponseEntity.ok("Document uploaded with ID: " + documentId);
+            // Appel au service combiné : FileNet + DB
+            String documentId = medicalDocumentService.uploadAndSaveToDatabase(file, title, patientId, type, saveDate);
+
+            Map<String, Object> response = new HashMap<>();
+            response.put("success", true);
+            response.put("message", "Document uploaded and saved successfully.");
+
+            return ResponseEntity.ok(response);
         } catch (Exception e) {
-            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
-                    .body("Upload failed: " + e.getMessage());
+            Map<String, Object> response = new HashMap<>();
+            response.put("success", false);
+            response.put("message", "Upload failed: " + e.getMessage());
+
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(response);
         }
     }
 
-    // Méthode pour télécharger un fichier
+    // Télécharger un document
     @GetMapping("/download/{documentId}")
     public void downloadFile(@PathVariable String documentId, HttpServletResponse response) {
         try {
-            // Utilisation du service pour récupérer le document
             InputStream inputStream = fileNetDocumentService.downloadDocumentFromFileNet(documentId);
+            String mimeType = fileNetDocumentService.getMimeType(documentId);
 
-            // Définir le type de contenu pour le PDF
-            response.setContentType("application/pdf");
-            response.setHeader("Content-Disposition", "attachment; filename=" + documentId + ".pdf");
+            if (inputStream == null || mimeType == null) {
+                response.sendError(404, "Document non trouvé ou vide");
+                return;
+            }
 
-            // Lire le contenu du document et l'écrire dans la réponse HTTP
+            String extension = switch (mimeType) {
+                case "application/pdf" -> ".pdf";
+                case "image/jpeg" -> ".jpg";
+                case "image/png" -> ".png";
+                default -> "";
+            };
+
+            response.setContentType(mimeType);
+            response.setHeader("Content-Disposition", "attachment; filename=" + documentId + extension);
+
             byte[] buffer = new byte[1024];
             int bytesRead;
             while ((bytesRead = inputStream.read(buffer)) != -1) {
@@ -51,7 +87,7 @@ public class FileNetController {
             inputStream.close();
             response.flushBuffer();
         } catch (Exception e) {
-            // Si une erreur se produit, retourner une erreur HTTP
+            e.printStackTrace();
             try {
                 response.sendError(500, "Erreur lors du téléchargement du fichier : " + e.getMessage());
             } catch (IOException ioException) {
@@ -60,4 +96,15 @@ public class FileNetController {
         }
     }
 
+    // Récupérer les documents d’un patient
+    @GetMapping("/documents/patient/{patientId}")
+    public ResponseEntity<?> getDocumentsByPatient(@PathVariable Long patientId) {
+        try {
+            List<MedicalDocument> documents = medicalDocumentService.getDocumentsByPatientId(patientId);
+            return ResponseEntity.ok(documents);
+        } catch (Exception e) {
+            return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR)
+                    .body("Erreur lors de la récupération des documents : " + e.getMessage());
+        }
+    }
 }
