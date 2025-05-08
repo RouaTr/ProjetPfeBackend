@@ -54,13 +54,27 @@ public class PractitionnerRestController {
 
     }
     @RequestMapping(value = "/{id}" ,method = RequestMethod.PUT)
-    public Practitionner updatePractitionner(@PathVariable("id")Long id, @RequestBody Practitionner practitionner){
-        practitionner.setPassword(this.bCryptPasswordEncoder.encode(practitionner.getPassword()));
-        Practitionner savedUser = practitionnerRepository.save(practitionner);
+    public ResponseEntity<?> updatePractitionner(@PathVariable("id") Long id, @RequestBody Practitionner updatedData) {
+        Optional<Practitionner> optionalExistingPractitionner = practitionnerRepository.findById(id);
 
-        Practitionner newPractitionner = practitionnerService.updatePractitionner(practitionner);
-        return newPractitionner;
+        if (optionalExistingPractitionner.isEmpty()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Practicien introuvable");
+        }
+
+        Practitionner existingPractitionner = optionalExistingPractitionner.get();
+
+        // Mettre à jour uniquement les champs autorisés
+        existingPractitionner.setPractitionnerFirstName(updatedData.getPractitionnerFirstName());
+        existingPractitionner.setPractitionnerLastName(updatedData.getPractitionnerLastName());
+        existingPractitionner.setPractitionnerEmail(updatedData.getPractitionnerEmail());
+        existingPractitionner.setPractitionnerPhoneNumber(updatedData.getPractitionnerPhoneNumber());
+
+
+        Practitionner updatedPractitionner = practitionnerRepository.save(existingPractitionner);
+        return ResponseEntity.ok(updatedPractitionner);
     }
+
+
 
     @RequestMapping(method = RequestMethod.GET )
     public List<Practitionner> diplayPractitionner(){
