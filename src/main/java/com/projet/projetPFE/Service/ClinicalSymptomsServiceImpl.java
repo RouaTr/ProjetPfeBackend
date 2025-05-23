@@ -46,7 +46,7 @@ public class ClinicalSymptomsServiceImpl implements ClinicalSymptomsService{
             throw new RuntimeException("Patient non trouvé avec l'ID : " + patientId);
         }
 
-        // Associer uniquement l'ID du patient et l'ID de l'observation
+        // Associer uniquement l'ID du patient et l'ID de symptom
         Patient patient = patientOptional.get();
         clinicalSymptoms.setId(id);
         clinicalSymptoms.setPatient(patient);

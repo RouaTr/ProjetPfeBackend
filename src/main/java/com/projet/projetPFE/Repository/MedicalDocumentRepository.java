@@ -7,7 +7,6 @@ import java.util.List;
 import java.util.Optional;
 
 public interface MedicalDocumentRepository extends JpaRepository<MedicalDocument, Long> {
-    Optional<MedicalDocument> findByPatientIdAndType(Long patientId, String type);
     List<MedicalDocument> findByPatientId(Long patientId);
 
 

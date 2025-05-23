@@ -56,7 +56,15 @@ public class Patient {
     private String contaminationMode;
     private String initialScreeningType;
     private String initialScreeningReason;
+    private Double imc;
 
+    public Double getImc() {
+        return imc;
+    }
+
+    public void setImc(Double imc) {
+        this.imc = imc;
+    }
 
     public Double getAge_at_HIV_diagnosis() {
         return age_at_HIV_diagnosis;

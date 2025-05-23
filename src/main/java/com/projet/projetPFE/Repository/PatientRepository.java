@@ -11,5 +11,5 @@ public interface PatientRepository extends JpaRepository <Patient,Long>{
     List<Patient> findByPractitionner(Practitionner practitioner);
 
     List<Patient> findByPractitionnerId(Long id);
-    List<String> findByMedicalRecordNumber(String medicalRecordNumber);
+
 }

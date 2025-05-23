@@ -57,7 +57,7 @@ public class PatientRestController {
         // Vérification si le praticien existe
         if (practitionner == null) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND)
-                    .body(null); // Vous pouvez aussi renvoyer un message d'erreur si nécessaire
+                    .body(null);
         }
 
         // Ajout du praticien à l'objet patient

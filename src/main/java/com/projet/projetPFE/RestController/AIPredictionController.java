@@ -4,7 +4,6 @@ package com.projet.projetPFE.RestController;
 import com.projet.projetPFE.Repository.PatientRepository;
 
 import com.projet.projetPFE.Service.TreatmentPredictionService;
-import com.projet.projetPFE.Service.WekaModelService;
 import com.projet.projetPFE.config.TreatmentPredictionDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 
@@ -19,8 +18,6 @@ import org.springframework.web.bind.annotation.*;
 @RequestMapping("/ai")
 public class AIPredictionController {
 
-    @Autowired
-    private WekaModelService wekaModelService;
 
     @Autowired
     private TreatmentPredictionService treatmentPredictionService;

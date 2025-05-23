@@ -33,7 +33,7 @@ public class TreatmentPredictionService {
     @Autowired
     private PatientRepository patientRepository;
 
-    private Classifier classifier;
+    private Classifier classifier; // objet pour stocker le modèle d'apprentissage automatique
 
     public void trainModel() {
         try {
@@ -204,13 +204,13 @@ public class TreatmentPredictionService {
 
         // Filtrer les traitements déjà utilisés ET le traitement actuel
         List<String> availableTreatments = names.stream()
-                .filter(treatment -> !treatmentHistory.contains(treatment) && 
-                                  !treatment.equals(predictionDTO.getTreatmentName()))
+                .filter(treatment -> !treatmentHistory.contains(treatment) &&
+                        !treatment.equals(predictionDTO.getTreatmentName()))
                 .collect(Collectors.toList());
 
         if (availableTreatments.isEmpty()) {
-            System.out.println("Aucun traitement alternatif disponible pour le patient " + 
-                             predictionDTO.getMedicalRecordNumber());
+            System.out.println("Aucun traitement alternatif disponible pour le patient " +
+                    predictionDTO.getMedicalRecordNumber());
             return null;
         }
 
@@ -223,83 +223,32 @@ public class TreatmentPredictionService {
         System.out.println("- Traitement actuel : " + predictionDTO.getTreatmentName());
         System.out.println("- Historique des traitements : " + treatmentHistory);
 
-        // Logique de sélection basée sur l'historique et les valeurs actuelles
-        if (viralLoad > 1000) {
-            // Charge virale très élevée : besoin d'un traitement puissant
-            // Éviter les classes de médicaments déjà utilisées
-            String suggested = availableTreatments.stream()
-                    .filter(t -> {
-                        // Si le patient a déjà utilisé des inhibiteurs de protéase
-                        boolean usedPI = treatmentHistory.stream()
-                                .anyMatch(h -> h.contains("Lop/r") || h.contains("ATV/r"));
-                        // Si le patient a déjà utilisé des inhibiteurs d'intégrase
-                        boolean usedINSTI = treatmentHistory.stream()
-                                .anyMatch(h -> h.contains("DTG"));
-                        
-                        // Suggérer un traitement avec une classe différente
-                        if (usedPI && usedINSTI) {
-                            return t.contains("EFV"); // Essayer un inhibiteur non-nucléosidique
-                        } else if (usedPI) {
-                            return t.contains("DTG"); // Essayer un inhibiteur d'intégrase
-                        } else if (usedINSTI) {
-                            return t.contains("Lop/r"); // Essayer un inhibiteur de protéase
-                        }
-                        return t.contains("DTG") && t.contains("Lop/r"); // Combinaison la plus puissante
-                    })
-                    .findFirst()
-                    .orElse(availableTreatments.get(0));
-            
-            System.out.println("Traitement suggéré (charge virale très élevée) : " + suggested);
-            return suggested;
-        } 
-        else if (viralLoad > 200) {
-            // Charge virale modérément élevée
-            String suggested = availableTreatments.stream()
-                    .filter(t -> {
-                        // Vérifier si le patient a déjà eu des problèmes avec certains médicaments
-                        boolean hadSideEffects = treatmentHistory.stream()
-                                .anyMatch(h -> h.contains("EFV")); // Exemple : effets secondaires avec EFV
-                        
-                        if (hadSideEffects) {
-                            return !t.contains("EFV"); // Éviter les médicaments problématiques
-                        }
-                        return t.contains("DTG"); // Privilégier les inhibiteurs d'intégrase
-                    })
-                    .findFirst()
-                    .orElse(availableTreatments.get(0));
-            
-            System.out.println("Traitement suggéré (charge virale modérée) : " + suggested);
-            return suggested;
-        } 
-        else if (cd4Count < 200) {
-            // CD4 bas : besoin d'un traitement qui augmente rapidement les CD4
-            String suggested = availableTreatments.stream()
-                    .filter(t -> t.contains("Lop/r")) // LPV/r est connu pour augmenter rapidement les CD4
-                    .findFirst()
-                    .orElse(availableTreatments.stream()
-                            .filter(t -> t.contains("DTG"))
-                            .findFirst()
-                            .orElse(availableTreatments.get(0)));
-            
-            System.out.println("Traitement suggéré (CD4 bas) : " + suggested);
-            return suggested;
-        } 
-        else {
-            // Cas standard : choisir un traitement simple et bien toléré
-            String suggested = availableTreatments.stream()
-                    .filter(t -> {
-                        // Éviter les combinaisons complexes si possible
-                        boolean isSimple = !t.contains("+") && !t.contains("/");
-                        // Privilégier les traitements en un seul comprimé
-                        boolean isSingleTablet = t.contains("=");
-                        
-                        return isSimple || isSingleTablet;
-                    })
-                    .findFirst()
-                    .orElse(availableTreatments.get(0));
-            
-            System.out.println("Traitement suggéré (cas standard) : " + suggested);
-            return suggested;
+        // Utiliser l'historique des patients similaires pour prédire un traitement
+        List<TreatmentPredictionDTO> allPredictions = predictionRepository.fetchAllTreatmentPredictions();
+        List<TreatmentPredictionDTO> similarPatients = allPredictions.stream()
+                .filter(dto -> Math.abs(dto.getViralLoad() - viralLoad) < 50 && Math.abs(dto.getCd4Count() - cd4Count) < 50)
+                .collect(Collectors.toList());
+
+        // Analyser les traitements efficaces chez les patients similaires
+        Map<String, Long> treatmentCounts = similarPatients.stream()
+                .filter(dto -> dto.getEffective() != null && dto.getEffective())
+                .map(TreatmentPredictionDTO::getTreatmentName)
+                .collect(Collectors.groupingBy(treatment -> treatment, Collectors.counting()));
+
+        // Trouver le traitement le plus fréquent chez les patients similaires
+        Optional<String> suggestedTreatment = treatmentCounts.entrySet().stream()
+                .max(Map.Entry.comparingByValue())
+                .map(Map.Entry::getKey);
+
+        if (suggestedTreatment.isPresent()) {
+            String treatment = suggestedTreatment.get();
+            System.out.println("Traitement suggéré (sur la base de l'historique des patients similaires) : " + treatment);
+            return treatment;
+        } else {
+            // Si aucun traitement n'a été trouvé, prendre un traitement par défaut
+            String defaultTreatment = availableTreatments.get(0);
+            System.out.println("Aucun traitement trouvé dans l'historique des patients similaires, traitement par défaut : " + defaultTreatment);
+            return defaultTreatment;
         }
     }
 }
